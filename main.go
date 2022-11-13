@@ -1,27 +1,57 @@
 package main
 
 import (
-	"context"
-	"crypto/ecdsa"
 	"database/sql"
 	"encoding/json"
 	"errors"
-	"fmt"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/chenzhijie/go-web3"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/gorilla/mux"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/rs/cors"
 	"log"
-	"math/big"
 	"net/http"
 	"os"
+	"strconv"
 )
-
-const VerificationABI string = "[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hashedMessage\",\"type\":\"bytes32\"},{\"internalType\":\"uint8\",\"name\":\"_v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"_s\",\"type\":\"bytes32\"}],\"name\":\"VerifyMessage\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]"
 const PrivateKey string = "e5fb0910de1ba57e0328d591343c47e2ed620bdc7ba9364b62b1ff32968c45f7"
 
+var VerificationABI = `[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_hashedMessage",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_v",
+        "type": "uint8"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_r",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_s",
+        "type": "bytes32"
+      }
+    ],
+    "name": "VerifyMessage",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]`
 
 type VerificationRequest struct {
 	Name            string          `json:"name"`
@@ -56,15 +86,9 @@ var Check = make(chan bool)
 func main() {
 
 	setupDatabase()
-	refreshQueue()
-	Check <- true
 
-	ctx := context.Background()
-	client, err := ethclient.DialContext(ctx, "https://red-weathered-firefly.avalanche-testnet.quiknode.pro/ext/bc/C/rpc")
-	if err != nil {
-		log.Fatal(err)
-	}
-	go handleRequests(client, ctx)
+	go handleRequests()
+	Check <- true
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"*"},    // All origins
@@ -144,15 +168,19 @@ func verify(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 }
 
-func handleRequests(client *ethclient.Client, ctx context.Context) {
+func handleRequests() {
 	for {
 		select {
 		case <-Check:
 			refreshQueue()
 			for _, v := range Queue {
 				log.Println(v)
-				acc := getAccountAuth(client, PrivateKey)
-				log.Println(acc)
+				isValid := verifyWalletAddress(v.Signature.SignatureData)
+
+				if !isValid {
+					deleteRequest(v)
+				}
+				log.Println(isValid)
 			}
 		}
 	}
@@ -219,40 +247,71 @@ func insertNewRequest(data VerificationRequest) error {
 	return nil
 }
 
-func getAccountAuth(client *ethclient.Client, accountAddress string) *bind.TransactOpts {
+func verifyWalletAddress(_data SignatureData) bool  {
 
-	privateKey, err := crypto.HexToECDSA(accountAddress)
+	rpcURL := "https://red-weathered-firefly.avalanche-testnet.quiknode.pro/ext/bc/C/rpc"
+	web3, err := web3.NewWeb3(rpcURL)
+
+	if err != nil {
+		log.Println(err)
+		return false
+	}
+
+	avaxMainnetChainId := int64(43113)
+	if err := web3.Eth.SetAccount(PrivateKey); err != nil {
+		log.Println(err)
+		return false
+	}
+	web3.Eth.SetChainId(avaxMainnetChainId)
+	tokenAddr := "0xF686F5D7165e8Ce1C606978F424a2DBd4a37e122"
+	contract, err := web3.Eth.NewContract(VerificationABI, tokenAddr)
+	if err != nil {
+		log.Println(err)
+		return false
+	}
+
+	msg := [32]byte{}
+	copy(msg[:], _data.HashedMessage)
+
+	num := _data.V
+	v, _ := strconv.Atoi(num)
+
+	r := [32]byte{}
+	copy(r[:], _data.R)
+
+	s := [32]byte{}
+	copy(s[:], _data.S)
+
+	checkedAddress, err := contract.Call("VerifyMessage", msg, uint8(v), r, s)
 	if err != nil {
 		panic(err)
 	}
-
-	publicKey := privateKey.Public()
-	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
-	if !ok {
-		panic("invalid key")
+	if checkedAddress.(common.Address).String() != "0x0000000000000000000000000000000000000000" {
+		return true
 	}
 
-	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
+	return false
+}
 
-	//fetch the last use nonce of account
-	nonce, err := client.PendingNonceAt(context.Background(), fromAddress)
+func deleteRequest(data VerificationRequest) error {
+	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
-		panic(err)
+		log.Fatal(err.Error())
 	}
-	fmt.Println("nounce=", nonce)
-	chainID, err := client.ChainID(context.Background())
-	if err != nil {
-		panic(err)
-	}
+	defer db.Close()
 
-	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, chainID)
+	statement, err := db.Prepare(
+		`DELETE FROM requests WHERE wallet_address = ?`,
+	)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return err
 	}
-	auth.Nonce = big.NewInt(int64(nonce))
-	auth.Value = big.NewInt(0)      // in wei
-	auth.GasLimit = uint64(3000000) // in units
-	auth.GasPrice = big.NewInt(1000000)
-
-	return auth
+	_, err = statement.Exec(
+		data.WalletAddress,
+	)
+	if err != nil {
+		return err
+	}
+	return nil
 }
