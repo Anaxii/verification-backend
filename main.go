@@ -175,7 +175,7 @@ func handleRequests() {
 			refreshQueue()
 			for _, v := range Queue {
 				log.Println(v)
-				isValid := verifyWalletAddress(v.Signature.SignatureData)
+				isValid := verifyWalletAddress(v.Signature.SignatureData, v.WalletAddress)
 
 				if !isValid {
 					deleteRequest(v)
@@ -247,7 +247,7 @@ func insertNewRequest(data VerificationRequest) error {
 	return nil
 }
 
-func verifyWalletAddress(_data SignatureData) bool  {
+func verifyWalletAddress(_data SignatureData, walletAddress string) bool  {
 
 	rpcURL := "https://red-weathered-firefly.avalanche-testnet.quiknode.pro/ext/bc/C/rpc"
 	web3, err := web3.NewWeb3(rpcURL)
@@ -286,7 +286,7 @@ func verifyWalletAddress(_data SignatureData) bool  {
 	if err != nil {
 		panic(err)
 	}
-	if checkedAddress.(common.Address).String() != "0x0000000000000000000000000000000000000000" {
+	if checkedAddress.(common.Address).String() == walletAddress {
 		return true
 	}
 
