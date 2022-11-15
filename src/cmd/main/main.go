@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 	"puffinverificationbackend/src/pkg/config"
-	"puffinverificationbackend/src/pkg/database"
+	"puffinverificationbackend/src/pkg/embeddeddatabase"
 	"puffinverificationbackend/src/pkg/global"
 	"puffinverificationbackend/src/pkg/routes"
 	"puffinverificationbackend/src/pkg/verify"
@@ -15,7 +15,7 @@ import (
 
 func main() {
 
-	database.SetupDatabase()
+	embeddeddatabase.SetupDatabase()
 
 	go verify.HandleRequests()
 	global.CheckRequests <- true

@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"puffinverificationbackend/src/pkg/database"
+	"puffinverificationbackend/src/pkg/embeddeddatabase"
+	"puffinverificationbackend/src/pkg/externaldatabase"
 	"puffinverificationbackend/src/pkg/global"
 )
 
@@ -25,7 +26,14 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = database.InsertNewRequest(requestBody)
+	id, err := externaldatabase.InsertRequest(requestBody, "requests", "pending")
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	err = embeddeddatabase.InsertNewRequest(requestBody, id)
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(http.StatusBadRequest)
@@ -34,4 +42,5 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 	global.CheckRequests <- true
 
 	w.Write(res)
+
 }

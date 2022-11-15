@@ -1,9 +1,9 @@
 package verify
 
 import (
-	"log"
 	"puffinverificationbackend/src/pkg/blockchain"
-	"puffinverificationbackend/src/pkg/database"
+	"puffinverificationbackend/src/pkg/embeddeddatabase"
+	"puffinverificationbackend/src/pkg/externaldatabase"
 	"puffinverificationbackend/src/pkg/global"
 	"time"
 )
@@ -15,7 +15,6 @@ func minuteTicker() *time.Ticker {
 func HandleRequests() {
 	updating := false
 	go func() {
-		log.Println("Started ticker")
 		t := minuteTicker()
 		for {
 			<-t.C
@@ -30,22 +29,27 @@ func HandleRequests() {
 		select {
 		case <-global.CheckRequests:
 			updating = true
-			database.RefreshQueue()
+			embeddeddatabase.RefreshQueue()
 			for _, v := range global.Queue {
 				isValid := blockchain.VerifySignature(v.Signature.SignatureData, v.WalletAddress)
-
 				if !isValid {
-					database.DeleteRequest(v)
+					embeddeddatabase.DeleteRequest(v)
+					externaldatabase.DenyRequest(v, "invalid signature")
 					continue
 				}
 
 				if !blockchain.CheckIfIsApproved(v.WalletAddress) {
 					blockchain.ApproveAddress(v.WalletAddress)
-					// send to mongodb
-
-					//database.DeleteRequest(v)
+					err := externaldatabase.ApproveRequest(v)
+					if err == nil {
+						embeddeddatabase.DeleteRequest(v)
+					}
+				} else {
+					err := externaldatabase.DenyRequest(v, "wallet already has kyc")
+					if err != nil {
+						embeddeddatabase.DeleteRequest(v)
+					}
 				}
-				log.Println(blockchain.CheckIfIsApproved(v.WalletAddress))
 			}
 			updating = false
 		}

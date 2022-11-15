@@ -1,12 +1,13 @@
-package database
+package embeddeddatabase
 
 import (
 	"database/sql"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"log"
 	"puffinverificationbackend/src/pkg/global"
 )
 
-func InsertNewRequest(data global.VerificationRequest) error {
+func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
 		log.Fatal(err.Error())
@@ -14,7 +15,7 @@ func InsertNewRequest(data global.VerificationRequest) error {
 	defer db.Close()
 
 	statement, err := db.Prepare(
-		`INSERT INTO requests(wallet_address, status, email, hashed_message, r, s, v, sig, message, account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		`INSERT INTO requests(wallet_address, id, status, email, hashed_message, r, s, v, sig, message, account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 	)
 	if err != nil {
 		log.Println(err)
@@ -22,6 +23,7 @@ func InsertNewRequest(data global.VerificationRequest) error {
 	}
 	_, err = statement.Exec(
 		data.WalletAddress,
+		id.Hex(),
 		"pending",
 		data.Email,
 		data.Signature.SignatureData.HashedMessage,
@@ -80,6 +82,7 @@ func RefreshQueue() {
 	for row.Next() {
 		var walletAddress string
 		var email string
+		var id string
 		var status string
 		var message string
 		var account string
@@ -89,11 +92,11 @@ func RefreshQueue() {
 		var v string
 		var sig string
 
-		err = row.Scan(&walletAddress, &email, &status, &message, &account, &hashed_message, &r, &s, &v, &sig)
+		err = row.Scan(&walletAddress, &id, &email, &status, &message, &account, &hashed_message, &r, &s, &v, &sig)
 		if err != nil {
 			continue
 		}
-		_queue = append(_queue, global.VerificationRequest{WalletAddress: walletAddress, Email: email, Signature: global.SignatureStruct{Message: message, Account: account, SignatureData: global.SignatureData{HashedMessage: hashed_message, R: r, S: s, V: v, Sig: sig}}})
+		_queue = append(_queue, global.VerificationRequest{WalletAddress: walletAddress, ID: id, Status: status, Email: email, Signature: global.SignatureStruct{Message: message, Account: account, SignatureData: global.SignatureData{HashedMessage: hashed_message, R: r, S: s, V: v, Sig: sig}}})
 	}
 	global.Queue = _queue
 }

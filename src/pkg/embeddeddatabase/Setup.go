@@ -1,4 +1,4 @@
-package database
+package embeddeddatabase
 
 import (
 	"database/sql"
@@ -9,7 +9,7 @@ import (
 
 func SetupDatabase() {
 	if _, err := os.Stat("./sqlite-database.db"); errors.Is(err, os.ErrNotExist) {
-		log.Println("Creating sqlite-database.db...")
+		log.Println("Creating sqlite-edatabase.db...")
 		file, err := os.Create("sqlite-database.db") // Create SQLite file
 		if err != nil {
 			log.Fatal(err.Error())
@@ -25,7 +25,8 @@ func SetupDatabase() {
 
 		log.Println("Create tables...")
 		statement, err := db.Prepare(`CREATE TABLE requests (
-		"wallet_address" TEXT,		
+		"wallet_address" TEXT,	
+		"id" TEXT,	
 		"email" TEXT,
 		"status" TEXT,
 		"message" TEXT,
