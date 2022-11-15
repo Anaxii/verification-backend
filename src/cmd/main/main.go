@@ -18,11 +18,11 @@ func main() {
 	database.SetupDatabase()
 
 	go verify.HandleRequests()
-	global.Check <- true
+	global.CheckRequests <- true
 
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"*"},    // All origins
-		AllowedMethods: []string{"POST"}, // Allowing only get, just an example
+		AllowedOrigins: []string{"*"},
+		AllowedMethods: []string{"POST"},
 	})
 
 	r := mux.NewRouter().StrictSlash(true)

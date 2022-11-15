@@ -14,9 +14,8 @@ import (
 
 
 func VerifySignature(_data global.SignatureData, walletAddress string) bool  {
-
-	eipChallenge := EIP191{"Puffin KYC Request: " + walletAddress, _data.Sig, walletAddress}
-	return decodePersonal(eipChallenge)
+	eip191 := EIP191{"Puffin KYC Request: " + walletAddress, _data.Sig, walletAddress}
+	return decodePersonal(eip191)
 }
 
 func CheckIfIsApproved(walletAddress string) bool {
@@ -25,7 +24,7 @@ func CheckIfIsApproved(walletAddress string) bool {
 		log.Println("Failed to connect to the Ethereum client:", err)
 	}
 
-	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress("0x094B85f01716ddB7E07bE8E68c29d1bA6E59944e"), conn)
+	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(global.AvaxChainApprovedAccountsAddress), conn)
 	if err != nil {
 		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
 	}
@@ -46,7 +45,7 @@ func ApproveAddress(walletAddress string) bool {
 		log.Println("Failed to connect to the Ethereum client:", err)
 	}
 
-	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress("0x094B85f01716ddB7E07bE8E68c29d1bA6E59944e"), conn)
+	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(global.AvaxChainApprovedAccountsAddress), conn)
 	if err != nil {
 		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
 	}

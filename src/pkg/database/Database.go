@@ -66,13 +66,15 @@ func RefreshQueue() {
 
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Println(err.Error())
+		return
 	}
 	defer db.Close()
 
 	row, err := db.Query("SELECT * FROM requests")
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 	defer row.Close()
 	for row.Next() {
@@ -86,7 +88,11 @@ func RefreshQueue() {
 		var s string
 		var v string
 		var sig string
-		row.Scan(&walletAddress, &email, &status, &message, &account, &hashed_message, &r, &s, &v, &sig)
+
+		err = row.Scan(&walletAddress, &email, &status, &message, &account, &hashed_message, &r, &s, &v, &sig)
+		if err != nil {
+			continue
+		}
 		_queue = append(_queue, global.VerificationRequest{WalletAddress: walletAddress, Email: email, Signature: global.SignatureStruct{Message: message, Account: account, SignatureData: global.SignatureData{HashedMessage: hashed_message, R: r, S: s, V: v, Sig: sig}}})
 	}
 	global.Queue = _queue

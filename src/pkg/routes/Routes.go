@@ -31,7 +31,7 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	global.Check <- true
+	global.CheckRequests <- true
 
 	w.Write(res)
 }
