@@ -1,6 +1,7 @@
 package verify
 
 import (
+	"log"
 	"puffinverificationbackend/src/pkg/blockchain"
 	"puffinverificationbackend/src/pkg/embeddeddatabase"
 	"puffinverificationbackend/src/pkg/externaldatabase"
@@ -39,8 +40,22 @@ func HandleRequests() {
 				}
 
 				if !blockchain.CheckIfIsApproved(v.WalletAddress) {
-					blockchain.ApproveAddress(v.WalletAddress)
-					err := externaldatabase.ApproveRequest(v)
+					err := blockchain.ApproveAddress(v.WalletAddress)
+					if err != nil {
+						err = externaldatabase.DenyRequest(v, "error approving wallet on mainnet")
+						if err != nil {
+							embeddeddatabase.DeleteRequest(v)
+						}
+					}
+					err = blockchain.EnableOnPuffin(v.WalletAddress)
+					if err != nil {
+						err = externaldatabase.DenyRequest(v, "error enabling wallet on puffin")
+						if err != nil {
+							embeddeddatabase.DeleteRequest(v)
+						}
+					}
+					log.Println(err)
+					err = externaldatabase.ApproveRequest(v)
 					if err == nil {
 						embeddeddatabase.DeleteRequest(v)
 					}
