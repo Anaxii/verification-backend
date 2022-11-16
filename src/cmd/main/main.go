@@ -27,6 +27,8 @@ func main() {
 
 	r := mux.NewRouter().StrictSlash(true)
 	r.HandleFunc("/verify", routes.Verify).Methods("POST")
+	r.HandleFunc("/status", routes.Status).Methods("POST")
+
 	r.Use(mux.CORSMethodMiddleware(r))
 	log.Fatal(http.ListenAndServe(":" + config.Port, c.Handler(r)))
 }

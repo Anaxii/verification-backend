@@ -1,7 +1,6 @@
 package verify
 
 import (
-	"log"
 	"puffinverificationbackend/src/pkg/blockchain"
 	"puffinverificationbackend/src/pkg/embeddeddatabase"
 	"puffinverificationbackend/src/pkg/externaldatabase"
@@ -54,7 +53,6 @@ func HandleRequests() {
 							embeddeddatabase.DeleteRequest(v)
 						}
 					}
-					log.Println(err)
 					err = externaldatabase.ApproveRequest(v)
 					if err == nil {
 						embeddeddatabase.DeleteRequest(v)

@@ -44,3 +44,20 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 
 }
+
+func Status(w http.ResponseWriter, r *http.Request) {
+	var requestBody global.VerificationRequest
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&requestBody)
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	status := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
+	res, err := json.Marshal(map[string]bool{"status": status})
+
+	w.Write(res)
+
+}

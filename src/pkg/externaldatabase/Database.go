@@ -72,3 +72,23 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 
 	return errors.New("failed to remove request")
 }
+
+func CheckIfExists(walletAddress string, table string) bool {
+
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://verificationBackend:BangFestina@35.84.247.233:27017/PuffinTestnet"))
+	if err != nil {
+		log.Println(err)
+		return false
+	}
+	defer client.Disconnect(ctx)
+
+	requestsCollection := client.Database("PuffinTestnet").Collection(table)
+	request := requestsCollection.FindOne(context.TODO(), bson.D{{"wallet_address", walletAddress}})
+	var result global.VerificationRequest
+	err = request.Decode(&result)
+	if err != nil {
+		return false
+	}
+	return true
+}

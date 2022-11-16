@@ -20,12 +20,12 @@ func VerifySignature(_data global.SignatureData, walletAddress string) bool  {
 }
 
 func CheckIfIsApproved(walletAddress string) bool {
-	conn, err := ethclient.Dial(global.AvaxRpcURL)
+	conn, err := ethclient.Dial(config.AvaxRpcURL)
 	if err != nil {
 		log.Println("Failed to connect to the Ethereum client:", err)
 	}
 
-	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(global.AvaxChainApprovedAccountsAddress), conn)
+	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(config.AvaxChainApprovedAccountsAddress), conn)
 	if err != nil {
 		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
 	}
@@ -36,12 +36,12 @@ func CheckIfIsApproved(walletAddress string) bool {
 		return false
 	}
 
-	conn, err = ethclient.Dial(global.PuffinRpcURL)
+	conn, err = ethclient.Dial(config.PuffinRpcURL)
 	if err != nil {
 		log.Println("Failed to connect to the Ethereum client:", err)
 	}
 
-	verifyPuffin, err := abi.NewAllowListInterface(common.HexToAddress(global.PuffinAllowListInterface), conn)
+	verifyPuffin, err := abi.NewAllowListInterface(common.HexToAddress(config.PuffinAllowListInterfaceURL), conn)
 	if err != nil {
 		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
 	}
@@ -57,13 +57,13 @@ func CheckIfIsApproved(walletAddress string) bool {
 
 func ApproveAddress(walletAddress string) error {
 
-	conn, err := ethclient.Dial(global.AvaxRpcURL)
+	conn, err := ethclient.Dial(config.AvaxRpcURL)
 	if err != nil {
 		log.Println("Failed to connect to the Ethereum client:", err)
 		return err
 	}
 
-	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(global.AvaxChainApprovedAccountsAddress), conn)
+	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(config.AvaxChainApprovedAccountsAddress), conn)
 	if err != nil {
 		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
 		return err
@@ -75,7 +75,7 @@ func ApproveAddress(walletAddress string) error {
 		return err
 	}
 
-	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, global.AvaxChainId)
+	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, config.AvaxChainId)
 	if err != nil {
 		log.Println("Failed to create authorized transactor:", err)
 		return err
@@ -92,13 +92,13 @@ func ApproveAddress(walletAddress string) error {
 
 func EnableOnPuffin(walletAddress string) error {
 
-	conn, err := ethclient.Dial(global.PuffinRpcURL)
+	conn, err := ethclient.Dial(config.PuffinRpcURL)
 	if err != nil {
 		log.Println("Failed to connect to the Ethereum client:", err)
 		return err
 	}
 
-	verify, err := abi.NewAllowListInterface(common.HexToAddress(global.PuffinAllowListInterface), conn)
+	verify, err := abi.NewAllowListInterface(common.HexToAddress(config.PuffinAllowListInterfaceURL), conn)
 	if err != nil {
 		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
 		return err
@@ -110,7 +110,7 @@ func EnableOnPuffin(walletAddress string) error {
 		return err
 	}
 
-	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, global.PuffinChainId)
+	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, config.PuffinChainId)
 	if err != nil {
 		log.Println("Failed to create authorized transactor:", err)
 		return err
