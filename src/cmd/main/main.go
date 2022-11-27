@@ -28,7 +28,7 @@ func main() {
 
 	r.HandleFunc("/verify", routes.Verify).Methods("POST")
 	r.HandleFunc("/status", routes.Status).Methods("POST")
-	r.HandleFunc("/pub", routes.GetPub).Methods("GET")
+	//r.HandleFunc("/pub", routes.GetPub).Methods("GET")
 
 	r.Use(mux.CORSMethodMiddleware(r))
 	log.Fatal(http.ListenAndServe(":"+config.Port, c.Handler(r)))
