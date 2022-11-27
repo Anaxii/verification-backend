@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"puffinverificationbackend/src/pkg/config"
 	"puffinverificationbackend/src/pkg/embeddeddatabase"
 	"puffinverificationbackend/src/pkg/externaldatabase"
 	"puffinverificationbackend/src/pkg/global"
@@ -42,6 +43,21 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 	global.CheckRequests <- true
 
 	w.Write(res)
+
+}
+
+func GetPub(w http.ResponseWriter, r *http.Request) {
+
+	defer r.Body.Close()
+
+	data, err := json.Marshal(map[string]string{"pub": config.PublicKey})
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	w.Write(data)
 
 }
 
