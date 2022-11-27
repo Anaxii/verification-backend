@@ -16,7 +16,6 @@ import (
 func main() {
 
 	embeddeddatabase.SetupDatabase()
-
 	go verify.HandleRequests()
 	global.CheckRequests <- true
 
