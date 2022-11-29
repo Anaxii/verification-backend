@@ -6,6 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
+	"log"
 	"strings"
 )
 
@@ -13,12 +14,6 @@ type EIP191 struct {
 	msg       string
 	signature string
 	address   string
-}
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
 }
 
 func hasValidLastByte(sig []byte) bool {
@@ -36,8 +31,12 @@ func signEIP191(message string) common.Hash {
 }
 
 func decodePersonal(eip191 EIP191) bool {
+	log.Println(eip191.signature)
 	decodedSig, err := hexutil.Decode(eip191.signature)
-	check(err)
+	if err != nil || len(decodedSig) < 65 {
+		log.Println(err)
+		return false
+	}
 
 	if decodedSig[64] < 27 {
 		if !hasValidLastByte(decodedSig) {
@@ -50,10 +49,16 @@ func decodePersonal(eip191 EIP191) bool {
 	hash := signEIP191(eip191.msg)
 
 	recoveredPublicKey, err := crypto.Ecrecover(hash.Bytes(), decodedSig)
-	check(err)
+	if err != nil {
+		log.Println(err)
+		return false
+	}
 
 	secp256k1RecoveredPublicKey, err := crypto.UnmarshalPubkey(recoveredPublicKey)
-	check(err)
+	if err != nil {
+		log.Println(err)
+		return false
+	}
 
 	recoveredAddress := crypto.PubkeyToAddress(*secp256k1RecoveredPublicKey).Hex()
 

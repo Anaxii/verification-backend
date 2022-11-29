@@ -71,9 +71,18 @@ func Status(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	status := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
-	res, err := json.Marshal(map[string]bool{"status": status})
-
-	w.Write(res)
+	approved := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved")
+	pending := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
+	denied := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied")
+	if approved {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+	} else if pending {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+	} else if denied {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+	}
 
 }

@@ -9,6 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	_ "go.mongodb.org/mongo-driver/mongo/readpref"
 	"log"
+	"puffinverificationbackend/src/pkg/config"
 	"puffinverificationbackend/src/pkg/global"
 	"time"
 )
@@ -16,7 +17,7 @@ import (
 func InsertRequest(req global.VerificationRequest, coll string, status string) (primitive.ObjectID, error) {
 	req.Status = status
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://verificationBackend:BangFestina@35.84.247.233:27017/PuffinTestnet"))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
 		log.Println(err)
 		return primitive.ObjectID{}, err
@@ -49,7 +50,7 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 	}
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://verificationBackend:BangFestina@35.84.247.233:27017/PuffinTestnet"))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
 		log.Println(err)
 		return err
@@ -74,11 +75,11 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 }
 
 func CheckIfExists(walletAddress string, table string) bool {
-
+	log.Println(config.MongoDBURI)
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://verificationBackend:BangFestina@35.84.247.233:27017/PuffinTestnet"))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
-		log.Println(err)
+		log.Println("checkifexist", err)
 		return false
 	}
 	defer client.Disconnect(ctx)
@@ -88,6 +89,7 @@ func CheckIfExists(walletAddress string, table string) bool {
 	var result global.VerificationRequest
 	err = request.Decode(&result)
 	if err != nil {
+		log.Println("checkifexist", err)
 		return false
 	}
 	return true
