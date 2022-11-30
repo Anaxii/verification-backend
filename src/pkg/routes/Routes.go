@@ -66,23 +66,36 @@ func Status(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
 	if err != nil {
-		log.Println(err)
+		log.Println("cant decode", err)
 		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	if requestBody.WalletAddress == "" {
+		log.Println("no addy", err)
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
 	approved := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved")
-	pending := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
-	denied := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied")
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
-	} else if pending {
-		res, _ := json.Marshal(map[string]string{"status": "approved"})
-		w.Write(res)
-	} else if denied {
-		res, _ := json.Marshal(map[string]string{"status": "approved"})
-		w.Write(res)
+		return
 	}
+	pending := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
+	if pending {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+		return
+	}
+	denied := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied")
+	if denied {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+		return
+	}
+	res, _ := json.Marshal(map[string]string{"status": "nonExist"})
+	w.Write(res)
+	return
 
 }

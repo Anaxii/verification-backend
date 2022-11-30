@@ -75,7 +75,7 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 }
 
 func CheckIfExists(walletAddress string, table string) bool {
-	log.Println(config.MongoDBURI)
+	log.Println(walletAddress)
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
@@ -89,7 +89,6 @@ func CheckIfExists(walletAddress string, table string) bool {
 	var result global.VerificationRequest
 	err = request.Decode(&result)
 	if err != nil {
-		log.Println("checkifexist", err)
 		return false
 	}
 	return true
