@@ -11,6 +11,7 @@ import (
 	"log"
 	"puffinverificationbackend/src/pkg/config"
 	"puffinverificationbackend/src/pkg/global"
+	"puffinverificationbackend/src/pkg/util"
 	"time"
 )
 
@@ -34,44 +35,31 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 }
 
 func DenyRequest(req global.VerificationRequest, reason string, coll string) error {
-	req.Status = reason
-	oid, err := primitive.ObjectIDFromHex(req.ID)
-	if err != nil {
-		log.Println(err)
-		return err
+	if oid, err := util.GetOID(req.ID); err == nil {
+		return updateRequest(coll, "denied", oid)
 	}
-	return updateRequest(coll, "denied", oid)
+	return errors.New("could not get oid")
 }
 
 func ApproveRequest(req global.VerificationRequest, coll string) error {
-	req.Status = "approved"
-	oid, err := primitive.ObjectIDFromHex(req.ID)
-	if err != nil {
-		log.Println(err)
-		return err
+	if oid, err := util.GetOID(req.ID); err == nil {
+		return updateRequest(coll, "approved", oid)
 	}
-	return updateRequest(coll, "approved", oid)
+	return errors.New("could not get oid")
 }
 
 func DenySubRequest(req global.SubAccountRequest, reason string, coll string) error {
-	req.Status = reason
-	oid, err := primitive.ObjectIDFromHex(req.ID)
-	if err != nil {
-		log.Println(err)
-		return err
+	if oid, err := util.GetOID(req.ID); err == nil {
+		return updateRequest(coll, "denied_subaccounts", oid)
 	}
-	return updateRequest(coll, "denied_subaccounts", oid)
+	return errors.New("could not get oid")
 }
 
 func ApproveSubRequest(req global.SubAccountRequest, coll string) error {
-	req.Status = "approved"
-	oid, err := primitive.ObjectIDFromHex(req.ID)
-	if err != nil {
-		log.Println(err)
-		return err
+	if oid, err := util.GetOID(req.ID); err == nil {
+		return updateRequest(coll, "subaccounts", oid)
 	}
-
-	return updateRequest(coll, "subaccounts", oid)
+	return errors.New("could not get oid")
 }
 
 func updateRequest(collection string, coll string, oid  primitive.ObjectID) error {

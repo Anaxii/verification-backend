@@ -1,4 +1,4 @@
-package routes
+package api
 
 import (
 	"encoding/json"
@@ -10,7 +10,7 @@ import (
 	"puffinverificationbackend/src/pkg/global"
 )
 
-func Verify(w http.ResponseWriter, r *http.Request) {
+func verify(w http.ResponseWriter, r *http.Request) {
 	var requestBody global.VerificationRequest
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
@@ -58,7 +58,7 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func RequestSubaccount(w http.ResponseWriter, r *http.Request) {
+func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	var requestBody global.SubAccountRequest
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
@@ -116,7 +116,7 @@ func RequestSubaccount(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func GetPub(w http.ResponseWriter, r *http.Request) {
+func getPub(w http.ResponseWriter, r *http.Request) {
 
 	defer r.Body.Close()
 
@@ -131,7 +131,7 @@ func GetPub(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func Status(w http.ResponseWriter, r *http.Request) {
+func status(w http.ResponseWriter, r *http.Request) {
 	var requestBody global.VerificationRequest
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
