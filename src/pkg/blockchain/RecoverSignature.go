@@ -31,7 +31,6 @@ func signEIP191(message string) common.Hash {
 }
 
 func decodePersonal(eip191 EIP191) bool {
-	log.Println(eip191.signature)
 	decodedSig, err := hexutil.Decode(eip191.signature)
 	if err != nil || len(decodedSig) < 65 {
 		log.Println(err)
@@ -40,7 +39,8 @@ func decodePersonal(eip191 EIP191) bool {
 
 	if decodedSig[64] < 27 {
 		if !hasValidLastByte(decodedSig) {
-			panic("Invalid last byte")
+			log.Println("Invalid last byte")
+			return false
 		}
 	} else {
 		decodedSig[64] -= 27 // shift byte?
