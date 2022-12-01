@@ -57,6 +57,7 @@ func SetupDatabase() {
 		"parent_s" TEXT,
 		"parent_v" TEXT,
 		"parent_sig" TEXT,
+		"subaccount_message",
 		"subaccount_account" TEXT,
 		"subaccount_hashed_message" TEXT,
 		"subaccount_r" TEXT,

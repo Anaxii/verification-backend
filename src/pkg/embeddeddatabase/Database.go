@@ -85,7 +85,7 @@ func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) er
 	return nil
 }
 
-func DeleteRequest(data global.VerificationRequest) error {
+func DeleteRequest(table string, walletAddress string, name string) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
 		log.Fatal(err.Error())
@@ -93,14 +93,14 @@ func DeleteRequest(data global.VerificationRequest) error {
 	defer db.Close()
 
 	statement, err := db.Prepare(
-		`DELETE FROM requests WHERE wallet_address = ?`,
+		`DELETE FROM ` + table + ` WHERE ` + name + ` = ?`,
 	)
 	if err != nil {
 		log.Println(err)
 		return err
 	}
 	_, err = statement.Exec(
-		data.WalletAddress,
+		walletAddress,
 	)
 	if err != nil {
 		return err
@@ -110,6 +110,7 @@ func DeleteRequest(data global.VerificationRequest) error {
 
 func RefreshQueue() {
 	var _queue []global.VerificationRequest
+	var _subaccountQueue []global.SubAccountRequest
 
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
@@ -144,4 +145,49 @@ func RefreshQueue() {
 		_queue = append(_queue, global.VerificationRequest{WalletAddress: walletAddress, ID: id, Status: status, Email: email, Signature: global.SignatureStruct{Message: message, Account: account, SignatureData: global.SignatureData{HashedMessage: hashed_message, R: r, S: s, V: v, Sig: sig}}})
 	}
 	global.Queue = _queue
+
+	row, err = db.Query("SELECT * FROM subaccount_requests")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer row.Close()
+	for row.Next() {
+		var parentWalletAddress string
+		var subaccountWalletAddress string
+		var id string
+		var status string
+
+		var parentMessage string
+		var parentAccount string
+		var parentHashedMessage string
+		var parentR string
+		var parentS string
+		var parentV string
+		var parentSig string
+
+		var subaccountMessage string
+		var subaccountAccount string
+		var subaccountHashedMessage string
+		var subaccountR string
+		var subaccountS string
+		var subaccountV string
+		var subaccountSig string
+
+		err = row.Scan(&parentWalletAddress, &subaccountWalletAddress, &id, &status,
+			&parentMessage, &parentAccount, &parentHashedMessage, &parentR, &parentS, &parentV, &parentSig,
+			&subaccountMessage, &subaccountAccount, &subaccountHashedMessage, &subaccountR, &subaccountS, &subaccountV, &subaccountSig)
+		if err != nil {
+			continue
+		}
+		_subaccountQueue = append(_subaccountQueue, global.SubAccountRequest{
+			ParentAddress: parentWalletAddress, SubAccountAddress: subaccountWalletAddress, ID: id,
+			ParentSignature: global.SignatureStruct{
+				Message: parentMessage, Account: parentAccount, SignatureData: global.SignatureData{HashedMessage: parentHashedMessage, R: parentR, S: parentS, V: parentV, Sig: parentSig},
+			},
+			SubAccountSignature: global.SignatureStruct{
+				Message: subaccountMessage, Account: subaccountWalletAddress, SignatureData: global.SignatureData{HashedMessage: subaccountHashedMessage, R: subaccountR, S: subaccountS, V: subaccountV, Sig: subaccountSig},
+			}})
+	}
+	global.SubAccountQueue = _subaccountQueue
 }

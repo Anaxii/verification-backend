@@ -33,20 +33,48 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 	return insertResult.InsertedID.(primitive.ObjectID), nil
 }
 
-func DenyRequest(req global.VerificationRequest, reason string) error {
-	return updateRequest(req, "denied", reason)
-}
-
-func ApproveRequest(req global.VerificationRequest) error {
-	return updateRequest(req, "approved", "approved")
-}
-
-func updateRequest(req global.VerificationRequest, coll string, status string) error {
+func DenyRequest(req global.VerificationRequest, reason string, coll string) error {
+	req.Status = reason
 	oid, err := primitive.ObjectIDFromHex(req.ID)
 	if err != nil {
 		log.Println(err)
 		return err
 	}
+	return updateRequest(coll, "denied", oid)
+}
+
+func ApproveRequest(req global.VerificationRequest, coll string) error {
+	req.Status = "approved"
+	oid, err := primitive.ObjectIDFromHex(req.ID)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	return updateRequest(coll, "approved", oid)
+}
+
+func DenySubRequest(req global.SubAccountRequest, reason string, coll string) error {
+	req.Status = reason
+	oid, err := primitive.ObjectIDFromHex(req.ID)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	return updateRequest(coll, "denied_subaccounts", oid)
+}
+
+func ApproveSubRequest(req global.SubAccountRequest, coll string) error {
+	req.Status = "approved"
+	oid, err := primitive.ObjectIDFromHex(req.ID)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+
+	return updateRequest(coll, "subaccounts", oid)
+}
+
+func updateRequest(collection string, coll string, oid  primitive.ObjectID) error {
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
@@ -56,15 +84,14 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 	}
 	defer client.Disconnect(ctx)
 
-	requestsCollection := client.Database("PuffinTestnet").Collection("requests")
+	requestsCollection := client.Database("PuffinTestnet").Collection(collection)
 	request := requestsCollection.FindOne(context.TODO(), bson.D{{"_id", oid}})
-	var result global.VerificationRequest
+	var result interface{}
 	err = request.Decode(&result)
 	if err != nil {
 		return err
 	}
 
-	result.Status = status
 	_, err = InsertRequest(result, coll)
 	if err == nil {
 		requestsCollection.DeleteOne(context.TODO(), bson.D{{"_id", oid}})
@@ -74,8 +101,7 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 	return errors.New("failed to remove request")
 }
 
-func CheckIfExists(walletAddress string, table string) (bool, global.VerificationRequest) {
-	log.Println(walletAddress)
+func CheckIfExists(walletAddress string, table string, key string) (bool, global.VerificationRequest) {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
@@ -85,7 +111,7 @@ func CheckIfExists(walletAddress string, table string) (bool, global.Verificatio
 	defer client.Disconnect(ctx)
 
 	requestsCollection := client.Database("PuffinTestnet").Collection(table)
-	request := requestsCollection.FindOne(context.TODO(), bson.D{{"wallet_address", walletAddress}})
+	request := requestsCollection.FindOne(context.TODO(), bson.D{{key, walletAddress}})
 	var result global.VerificationRequest
 	err = request.Decode(&result)
 	if err != nil {

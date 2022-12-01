@@ -27,7 +27,7 @@ func main() {
 	r := mux.NewRouter().StrictSlash(true)
 
 	r.HandleFunc("/verify", routes.Verify).Methods("POST")
-	r.HandleFunc("/requestsubaccount", routes.Verify).Methods("POST")
+	r.HandleFunc("/requestsubaccount", routes.RequestSubaccount).Methods("POST")
 	r.HandleFunc("/status", routes.Status).Methods("POST")
 	r.HandleFunc("/pub", routes.GetPub).Methods("GET")
 

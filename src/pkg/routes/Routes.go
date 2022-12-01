@@ -27,6 +27,18 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
+	if !approved {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccountaddress")
+	if approved {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
 	requestBody.Status ="pending"
 	id, err := externaldatabase.InsertRequest(requestBody, "requests")
 	if err != nil {
@@ -64,21 +76,28 @@ func RequestSubaccount(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved, _ := externaldatabase.CheckIfExists(requestBody.ParentAddress, "approved")
+	approved, _ := externaldatabase.CheckIfExists(requestBody.ParentAddress, "approved", "wallet_address")
 	if !approved {
 		res, _ := json.Marshal(map[string]string{"status": "parentAddressNotExist"})
 		w.Write(res)
 		return
 	}
 
-	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "approved")
+	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "approved", "wallet_address")
 	if approved {
-		res, _ := json.Marshal(map[string]string{"status": "alreadyExist"})
+		res, _ := json.Marshal(map[string]string{"status": "subaccountAlreadyKYC"})
 		w.Write(res)
 		return
 	}
 
-	id, err := externaldatabase.InsertRequest(requestBody, "subaccountRequests")
+	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "subaccounts", "subaccountaddress")
+	if approved {
+		res, _ := json.Marshal(map[string]string{"status": "subaccountAlreadyClaimed"})
+		w.Write(res)
+		return
+	}
+
+	id, err := externaldatabase.InsertRequest(requestBody, "subaccount_requests")
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(http.StatusBadRequest)
@@ -128,19 +147,19 @@ func Status(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved")
+	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
 		return
 	}
-	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
+	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests", "wallet_address")
 	if pending {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
 		return
 	}
-	denied, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied")
+	denied, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied", "wallet_address")
 	if denied {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
