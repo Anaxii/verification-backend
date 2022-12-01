@@ -14,8 +14,7 @@ import (
 	"time"
 )
 
-func InsertRequest(req global.VerificationRequest, coll string, status string) (primitive.ObjectID, error) {
-	req.Status = status
+func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
@@ -65,7 +64,8 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 		return err
 	}
 
-	_, err = InsertRequest(result, coll, status)
+	result.Status = status
+	_, err = InsertRequest(result, coll)
 	if err == nil {
 		requestsCollection.DeleteOne(context.TODO(), bson.D{{"_id", oid}})
 		return nil
@@ -74,13 +74,13 @@ func updateRequest(req global.VerificationRequest, coll string, status string) e
 	return errors.New("failed to remove request")
 }
 
-func CheckIfExists(walletAddress string, table string) bool {
+func CheckIfExists(walletAddress string, table string) (bool, global.VerificationRequest) {
 	log.Println(walletAddress)
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
 		log.Println("checkifexist", err)
-		return false
+		return false, global.VerificationRequest{}
 	}
 	defer client.Disconnect(ctx)
 
@@ -89,7 +89,7 @@ func CheckIfExists(walletAddress string, table string) bool {
 	var result global.VerificationRequest
 	err = request.Decode(&result)
 	if err != nil {
-		return false
+		return false, global.VerificationRequest{}
 	}
-	return true
+	return true, result
 }

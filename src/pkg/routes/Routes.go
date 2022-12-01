@@ -27,7 +27,8 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, err := externaldatabase.InsertRequest(requestBody, "requests", "pending")
+	requestBody.Status ="pending"
+	id, err := externaldatabase.InsertRequest(requestBody, "requests")
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(http.StatusBadRequest)
@@ -40,6 +41,57 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+	global.CheckRequests <- true
+
+	w.Write(res)
+
+}
+
+func RequestSubaccount(w http.ResponseWriter, r *http.Request) {
+	var requestBody global.SubAccountRequest
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&requestBody)
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	res, err := json.Marshal(map[string]string{"success": "true"})
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	approved, _ := externaldatabase.CheckIfExists(requestBody.ParentAddress, "approved")
+	if !approved {
+		res, _ := json.Marshal(map[string]string{"status": "parentAddressNotExist"})
+		w.Write(res)
+		return
+	}
+
+	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "approved")
+	if approved {
+		res, _ := json.Marshal(map[string]string{"status": "alreadyExist"})
+		w.Write(res)
+		return
+	}
+
+	id, err := externaldatabase.InsertRequest(requestBody, "subaccountRequests")
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	err = embeddeddatabase.InsertNewSubAccountRequest(requestBody, id)
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
 	global.CheckRequests <- true
 
 	w.Write(res)
@@ -76,19 +128,19 @@ func Status(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved")
+	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved")
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
 		return
 	}
-	pending := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
+	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests")
 	if pending {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
 		return
 	}
-	denied := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied")
+	denied, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied")
 	if denied {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)

@@ -44,6 +44,33 @@ func SetupDatabase() {
 		if err != nil {
 			log.Println(err.Error())
 		}
+
+		statement, err = db.Prepare(`CREATE TABLE subaccount_requests (
+		"parent_wallet_address" TEXT,
+		"subaccount_wallet_address" TEXT,	
+		"id" TEXT,	
+		"status" TEXT,
+		"parent_message" TEXT,
+		"parent_account" TEXT,
+		"parent_hashed_message" TEXT,
+		"parent_r" TEXT,
+		"parent_s" TEXT,
+		"parent_v" TEXT,
+		"parent_sig" TEXT,
+		"subaccount_account" TEXT,
+		"subaccount_hashed_message" TEXT,
+		"subaccount_r" TEXT,
+		"subaccount_s" TEXT,
+		"subaccount_v" TEXT,
+		"subaccount_sig" TEXT
+	  );`)
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+		_, err = statement.Exec() // Execute SQL Statements
+		if err != nil {
+			log.Println(err.Error())
+		}
 		log.Println("Table created")
 	}
 }

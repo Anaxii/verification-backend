@@ -7,6 +7,51 @@ import (
 	"puffinverificationbackend/src/pkg/global"
 )
 
+func InsertNewSubAccountRequest(data global.SubAccountRequest, id primitive.ObjectID) error {
+	db, err := sql.Open("sqlite3", "./sqlite-database.db")
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	defer db.Close()
+
+	statement, err := db.Prepare(
+		`INSERT INTO subaccount_requests(
+                     parent_wallet_address, subaccount_wallet_address, id, status, 
+                     parent_hashed_message, parent_r, parent_s, parent_v, parent_sig, 
+                     parent_message, parent_account, subaccount_hashed_message, subaccount_r, 
+                     subaccount_s, subaccount_v, subaccount_sig, subaccount_message, subaccount_account) 
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+	)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	_, err = statement.Exec(
+		data.ParentAddress,
+		data.SubAccountAddress,
+		id.Hex(),
+		"pending",
+		data.ParentSignature.SignatureData.HashedMessage,
+		data.ParentSignature.SignatureData.R,
+		data.ParentSignature.SignatureData.S,
+		data.ParentSignature.SignatureData.V,
+		data.ParentSignature.SignatureData.Sig,
+		data.ParentSignature.Message,
+		data.ParentSignature.Account,
+		data.SubAccountSignature.SignatureData.HashedMessage,
+		data.SubAccountSignature.SignatureData.R,
+		data.SubAccountSignature.SignatureData.S,
+		data.SubAccountSignature.SignatureData.V,
+		data.SubAccountSignature.SignatureData.Sig,
+		data.SubAccountSignature.Message,
+		data.SubAccountSignature.Account,
+	)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {

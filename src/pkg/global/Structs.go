@@ -42,3 +42,10 @@ type ConfigStruct struct {
 	PuffinAllowListInterfaceURL      string `json:"puffin_allow_list_interface_url"`
 	PuffinChainID                    int64  `json:"puffin_chain_id"`
 }
+
+type SubAccountRequest struct {
+	ParentAddress       string        `json:"parent_address" bson:"parent_address"`
+	SubAccountAddress   string        `json:"subaccount"`
+	ParentSignature     SignatureStruct `json:"parent_signature" bson:"parent_signature"`
+	SubAccountSignature SignatureStruct `json:"sub_account_signature" bson:"sub_account_signature"`
+}
