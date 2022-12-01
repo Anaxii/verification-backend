@@ -22,7 +22,6 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 
 	res, err := json.Marshal(map[string]string{"success": "true"})
 	if err != nil {
-		log.Println(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -148,6 +147,13 @@ func Status(w http.ResponseWriter, r *http.Request) {
 	}
 
 	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
+	if approved {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+		return
+	}
+	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccountaddress")
+
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
