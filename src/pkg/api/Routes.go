@@ -38,7 +38,7 @@ func verify(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccountaddress")
+	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
 	if approved {
 		w.WriteHeader(http.StatusBadRequest)
 		return
@@ -97,7 +97,7 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "subaccounts", "subaccountaddress")
+	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "subaccounts", "subaccount_address")
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "subaccountAlreadyClaimed"})
 		w.Write(res)
@@ -164,7 +164,7 @@ func status(w http.ResponseWriter, r *http.Request) {
 		w.Write(res)
 		return
 	}
-	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccountaddress")
+	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
 
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})

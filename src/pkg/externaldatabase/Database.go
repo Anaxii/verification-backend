@@ -3,12 +3,12 @@ package externaldatabase
 import (
 	"context"
 	"errors"
+	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	_ "go.mongodb.org/mongo-driver/mongo/readpref"
-	"log"
 	"puffinverificationbackend/src/pkg/config"
 	"puffinverificationbackend/src/pkg/global"
 	"puffinverificationbackend/src/pkg/util"
@@ -19,7 +19,7 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertRequest"}).Error("Failed to connect to mongodb client")
 		return primitive.ObjectID{}, err
 	}
 	defer client.Disconnect(ctx)
@@ -28,7 +28,7 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 
 	insertResult, err := requestsCollection.InsertOne(ctx, req)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertRequest", "collection": coll, "request_data": req}).Error("Failed to insert into collection")
 		return primitive.ObjectID{}, err
 	}
 	return insertResult.InsertedID.(primitive.ObjectID), nil
@@ -67,7 +67,7 @@ func updateRequest(collection string, coll string, oid  primitive.ObjectID) erro
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:updateRequest"}).Error("Failed to connect to mongodb client")
 		return err
 	}
 	defer client.Disconnect(ctx)
@@ -77,6 +77,7 @@ func updateRequest(collection string, coll string, oid  primitive.ObjectID) erro
 	var result interface{}
 	err = request.Decode(&result)
 	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:updateRequest", "id": oid.String(), "collection": collection}).Error("Failed to decode results")
 		return err
 	}
 

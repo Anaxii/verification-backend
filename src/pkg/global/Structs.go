@@ -45,8 +45,8 @@ type ConfigStruct struct {
 
 type SubAccountRequest struct {
 	ParentAddress       string          `json:"parent_address" bson:"parent_address"`
-	SubAccountAddress   string          `json:"subaccount_address"`
-	ID              string          `json:"id" bson:"id"`
+	SubAccountAddress   string          `json:"subaccount_address" bson:"subaccount_address"`
+	ID                  string          `json:"id" bson:"id"`
 	Status              string          `json:"status" bson:"status"`
 	ParentSignature     SignatureStruct `json:"parent_signature" bson:"parent_signature"`
 	SubAccountSignature SignatureStruct `json:"sub_account_signature" bson:"sub_account_signature"`
