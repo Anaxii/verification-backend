@@ -151,7 +151,7 @@ func status(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if requestBody.WalletAddress == "" {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:status"}).Warn("User didnt provide address")
+		log.WithFields(log.Fields{"file": "Routes:status"}).Warn("User didnt provide address")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
