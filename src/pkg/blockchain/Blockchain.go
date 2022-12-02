@@ -6,7 +6,7 @@ import (
 	_ "github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"math/big"
 	"puffinverificationbackend/src/pkg/abi"
 	"puffinverificationbackend/src/pkg/config"
@@ -22,33 +22,35 @@ func VerifySignature(_data global.SignatureData, walletAddress string) bool  {
 func CheckIfIsApproved(walletAddress string) bool {
 	conn, err := ethclient.Dial(config.AvaxRpcURL)
 	if err != nil {
-		log.Println("Failed to connect to the Ethereum client:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to connect to the Ethereum client")
 	}
 
 	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(config.AvaxChainApprovedAccountsAddress), conn)
 	if err != nil {
-		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to instantiate PuffinApprovedAccounts contract")
 	}
 
 	isApproved, err := verify.IsApproved(nil, common.HexToAddress(walletAddress))
 	if err != nil {
-		log.Println("Failed to read user:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to check if user is approved")
 		return false
 	}
 
 	conn, err = ethclient.Dial(config.PuffinRpcURL)
 	if err != nil {
-		log.Println("Failed to connect to the Ethereum client:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to connect to puffin RPC")
+		return false
 	}
 
 	verifyPuffin, err := abi.NewAllowListInterface(common.HexToAddress(config.PuffinAllowListInterfaceURL), conn)
 	if err != nil {
-		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to instantiate AllowListInterface")
+		return false
 	}
 
 	isEnabled, err := verifyPuffin.ReadAllowList(nil, common.HexToAddress(walletAddress))
 	if err != nil {
-		log.Println("Failed to read user:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to call ReadAllowList")
 		return false
 	}
 
@@ -56,34 +58,21 @@ func CheckIfIsApproved(walletAddress string) bool {
 }
 
 func ApproveAddress(walletAddress string) error {
-
-	conn, err := ethclient.Dial(config.AvaxRpcURL)
+	conn, auth, err := getAuth(config.AvaxRpcURL, config.AvaxChainId)
 	if err != nil {
-		log.Println("Failed to connect to the Ethereum client:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:ApproveAddress"}).Error("Failed to get auth")
 		return err
 	}
 
 	verify, err := abi.NewPuffinApprovedAccounts(common.HexToAddress(config.AvaxChainApprovedAccountsAddress), conn)
 	if err != nil {
-		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
-		return err
-	}
-
-	privateKey, err := crypto.HexToECDSA(config.PrivateKey)
-	if err != nil {
-		log.Println(err)
-		return err
-	}
-
-	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, config.AvaxChainId)
-	if err != nil {
-		log.Println("Failed to create authorized transactor:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:ApproveAddress"}).Error("Failed to instantiate PuffinApprovedAccounts contract")
 		return err
 	}
 
 	_, err = verify.Approve(auth, common.HexToAddress(walletAddress))
 	if err != nil {
-		log.Println("Failed to update user:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:ApproveAddress"}).Error("Failed to call approve")
 		return err
 	}
 
@@ -91,36 +80,46 @@ func ApproveAddress(walletAddress string) error {
 }
 
 func EnableOnPuffin(walletAddress string) error {
-
-	conn, err := ethclient.Dial(config.PuffinRpcURL)
+	conn, auth, err := getAuth(config.PuffinRpcURL, config.PuffinChainId)
 	if err != nil {
-		log.Println("Failed to connect to the Ethereum client:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:EnableOnPuffin"}).Error("Failed to get auth")
 		return err
 	}
 
 	verify, err := abi.NewAllowListInterface(common.HexToAddress(config.PuffinAllowListInterfaceURL), conn)
 	if err != nil {
-		log.Println("Failed to instantiate PuffinApprovedAccounts contract:", err)
-		return err
-	}
-
-	privateKey, err := crypto.HexToECDSA(config.PrivateKey)
-	if err != nil {
-		log.Println(err)
-		return err
-	}
-
-	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, config.PuffinChainId)
-	if err != nil {
-		log.Println("Failed to create authorized transactor:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:EnableOnPuffin"}).Error("Failed to initialize AllowListInterface")
 		return err
 	}
 
 	_, err = verify.SetEnabled(auth, common.HexToAddress(walletAddress))
 	if err != nil {
-		log.Println("Failed to update user:", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:EnableOnPuffin"}).Error("Failed to call SetEnabled")
 		return err
 	}
 
 	return nil
+}
+
+func getAuth(rpcURL string, chainID *big.Int) (*ethclient.Client, *bind.TransactOpts, error) {
+
+	conn, err := ethclient.Dial(rpcURL)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "rpcURL": rpcURL, "chainID": chainID, "file": "Blockchain:getAuth"}).Error("Failed to connect to the Ethereum client")
+		return &ethclient.Client{}, &bind.TransactOpts{}, err
+	}
+
+	privateKey, err := crypto.HexToECDSA(config.PrivateKey)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "rpcURL": rpcURL, "chainID": chainID, "file": "Blockchain:getAuth"}).Error("Failed to convert private key string to ECDSA")
+		return &ethclient.Client{}, &bind.TransactOpts{}, err
+	}
+
+	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, chainID)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "rpcURL": rpcURL, "chainID": chainID, "file": "Blockchain:getAuth"}).Error("Failed to create authorized transactor")
+		return &ethclient.Client{}, &bind.TransactOpts{}, err
+	}
+
+	return conn, auth, err
 }
