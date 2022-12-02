@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"github.com/patrickmn/go-cache"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"puffinverificationbackend/src/pkg/config"
@@ -9,7 +10,11 @@ import (
 	"puffinverificationbackend/src/pkg/externaldatabase"
 	"puffinverificationbackend/src/pkg/global"
 	"puffinverificationbackend/src/pkg/util"
+	"time"
 )
+
+var statusCache = cache.New(5*time.Minute, 10*time.Minute)
+
 
 func verify(w http.ResponseWriter, r *http.Request) {
 
@@ -150,6 +155,14 @@ func status(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+
+	_, found := statusCache.Get(requestBody.WalletAddress)
+	if found {
+		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		w.Write(res)
+		return
+	}
+
 	if requestBody.WalletAddress == "" {
 		log.WithFields(log.Fields{"file": "Routes:status"}).Warn("User didnt provide address")
 		w.WriteHeader(http.StatusBadRequest)
@@ -162,6 +175,7 @@ func status(w http.ResponseWriter, r *http.Request) {
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
+		statusCache.Set(requestBody.WalletAddress, true, cache.DefaultExpiration)
 		return
 	}
 	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
@@ -169,6 +183,7 @@ func status(w http.ResponseWriter, r *http.Request) {
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
+		statusCache.Set(requestBody.WalletAddress, true, cache.DefaultExpiration)
 		return
 	}
 	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests", "wallet_address")

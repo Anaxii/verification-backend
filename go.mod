@@ -6,6 +6,7 @@ require (
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/gorilla/mux v1.8.0
 	github.com/mattn/go-sqlite3 v1.14.16
+	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/rs/cors v1.7.0
 	github.com/sirupsen/logrus v1.9.0
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d

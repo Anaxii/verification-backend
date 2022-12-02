@@ -244,3 +244,249 @@
 [36mINFO[0m[2022-12-01T17:53:46-08:00] /status                                       [36mip[0m="[::1]:60117" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
 [36mINFO[0m[2022-12-01T17:54:16-08:00] /status                                       [36mip[0m="[::1]:60183" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
 [36mINFO[0m[2022-12-01T17:55:20-08:00] /status                                       [36mip[0m="[::1]:60264" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Logging configured                           
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Database Setup                               
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Starting API                                 
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-01T17:57:49-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T17:57:49-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T18:01:37-08:00] /status                                       [36mip[0m="[::1]:56756" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:01:38-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:01:38-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:01:38-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:01:38-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:01:39-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:01:52-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:01:52-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:01:52-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:01:52-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:01:53-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:02:01-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:01-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:01-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:01-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:02:01-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:02:18-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:18-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:18-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:18-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:02:18-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:02:40-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:40-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:40-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:02:40-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:02:40-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:03:06-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:06-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:06-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:06-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:03:06-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:03:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:03:37-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:03:49-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:49-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:49-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:03:49-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:03:50-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:04:16-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:16-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:16-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:16-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:04:16-08:00] /status                                       [36mip[0m="[::1]:56769" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:04:20-08:00] /status                                       [36mip[0m="[::1]:57230" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:04:20-08:00] /status                                       [36mip[0m="[::1]:57243" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:04:20-08:00] /status                                       [36mip[0m="[::1]:57250" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:04:21-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:21-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:21-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:21-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:04:22-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:04:32-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:32-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:32-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:04:32-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:04:33-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:05:25-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:05:25-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:05:25-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:05:25-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:05:26-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:06:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:06:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:06:37-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:07:23-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:07:23-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:07:23-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:07:25-08:00] /status                                       [36mip[0m="[::1]:57627" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:07:26-08:00] /status                                       [36mip[0m="[::1]:57642" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:02-08:00] /status                                       [36mip[0m="[::1]:57642" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:02-08:00] /status                                       [36mip[0m="[::1]:57627" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:08:03-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:08:03-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:08:03-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:08:03-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:08-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:18-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:28-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:08:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:08:37-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:08:37-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:37-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:37-08:00] /status                                       [36mip[0m="[::1]:57967" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:42-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:08:52-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[33mWARN[0m[2022-12-01T18:09:03-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[33mWARN[0m[2022-12-01T18:09:03-08:00] User didnt provide address                    [33mfile[0m="Routes:status"
+[36mINFO[0m[2022-12-01T18:09:03-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:03-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:03-08:00] /status                                       [36mip[0m="[::1]:57967" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:08-08:00] /status                                       [36mip[0m="[::1]:57967" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:18-08:00] /status                                       [36mip[0m="[::1]:57967" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:28-08:00] /status                                       [36mip[0m="[::1]:57967" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:38-08:00] /status                                       [36mip[0m="[::1]:57967" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:43-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:43-08:00] /status                                       [36mip[0m="[::1]:57282" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:43-08:00] /status                                       [36mip[0m="[::1]:58370" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:48-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:09:53-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:12:19-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:12:22-08:00] /status                                       [36mip[0m="[::1]:58370" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:12:28-08:00] /status                                       [36mip[0m="[::1]:58370" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:14:16-08:00] /status                                       [36mip[0m="[::1]:58370" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:14:48-08:00] /status                                       [36mip[0m="[::1]:58370" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:14:51-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:15:04-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0x26196a40173683aca1565467c5d8dccff843b736
+[36mINFO[0m[2022-12-01T18:16:25-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:16:31-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:19:07-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:19:18-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:03-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:04-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:04-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:04-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:04-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:09-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:09-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:09-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:09-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:09-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:14-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:14-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:14-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:14-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:14-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:24-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:35-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:46-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:46-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:46-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:46-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:46-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:52-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:52-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:52-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:52-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:22:52-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:33-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:33-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:33-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:33-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:33-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:43-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:52-08:00] /status                                       [36mip[0m="[::1]:63318" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:53-08:00] /status                                       [36mip[0m="[::1]:57762" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:53-08:00] /status                                       [36mip[0m="[::1]:63311" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:53-08:00] /status                                       [36mip[0m="[::1]:63332" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T18:24:53-08:00] /status                                       [36mip[0m="[::1]:63325" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:26-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:27-08:00] /status                                       [36mip[0m="[::1]:54849" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:27-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:27-08:00] /status                                       [36mip[0m="[::1]:54857" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:27-08:00] /status                                       [36mip[0m="[::1]:54870" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:37-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:47-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:02:57-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:03:07-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:03:17-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:03:27-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:03:37-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:03:47-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:03:57-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:07-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:17-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:25-08:00] /status                                       [36mip[0m="[::1]:54856" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:25-08:00] /status                                       [36mip[0m="[::1]:54870" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:25-08:00] /status                                       [36mip[0m="[::1]:54857" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:25-08:00] /status                                       [36mip[0m="[::1]:54849" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:04:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:05:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:05:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:05:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:05:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:05:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:05:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:06:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:06:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:06:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:06:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:06:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:06:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:07:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:07:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:07:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:07:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:07:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:07:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:08:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:08:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:08:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:08:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:08:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:08:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:09:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:09:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:09:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:09:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:09:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:09:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:10:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:10:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:10:25-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:10:35-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:10:45-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:10:55-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:11:05-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T19:11:15-08:00] /status                                       [36mip[0m="[::1]:54839" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Logging configured                           
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Database Setup                               
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Starting API                                 
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-01T22:02:46-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T22:02:46-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T22:03:52-08:00] /status                                       [36mip[0m="[::1]:55644" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:03:53-08:00] /status                                       [36mip[0m="[::1]:55659" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:03:53-08:00] /status                                       [36mip[0m="[::1]:55666" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:03:53-08:00] /status                                       [36mip[0m="[::1]:55673" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:03:53-08:00] /status                                       [36mip[0m="[::1]:55674" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:04:03-08:00] /status                                       [36mip[0m="[::1]:55674" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:04:13-08:00] /status                                       [36mip[0m="[::1]:55674" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:04:23-08:00] /status                                       [36mip[0m="[::1]:55674" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Logging configured                           
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Database Setup                               
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Starting API                                 
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-01T22:04:28-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T22:04:28-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T22:04:33-08:00] /status                                       [36mip[0m="[::1]:55734" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
