@@ -1,15 +1,15 @@
 package util
 
 import (
+	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"log"
 	"net/http"
 )
 
 func GetOID(id string) (primitive.ObjectID, error) {
 	oid, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Util:GetOID"}).Error("Failed to convert id string to primitive.ObjectID")
 		return primitive.ObjectID{}, err
 	}
 	return oid, err

@@ -73,3 +73,47 @@
 [36mINFO[0m[2022-12-01T17:13:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
 [36mINFO[0m[2022-12-01T17:14:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
 [36mINFO[0m[2022-12-01T17:15:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:16:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:17:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:18:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:19:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:20:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:21:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:22:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:23:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:24:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:25:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:26:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:27:01-08:00] /status                                       [36mip[0m="[::1]:59577" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Logging configured                           
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Database Setup                               
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Starting API                                 
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-01T17:27:36-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T17:27:36-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T17:28:01-08:00] /status                                       [36mip[0m="[::1]:57649" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:28:02-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists"
+[36mINFO[0m[2022-12-01T17:29:01-08:00] /status                                       [36mip[0m="[::1]:57649" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:29:02-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists"
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Logging configured                           
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Database Setup                               
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Starting API                                 
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-01T17:30:02-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T17:30:02-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-01T17:30:02-08:00] /status                                       [36mip[0m="[::1]:58232" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:30:03-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists" [33mkey[0m=wallet_address [33mtable[0m=approved [33mvalue[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:30:14-08:00] /status                                       [36mip[0m="[::1]:58232" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:30:15-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists" [33mkey[0m=wallet_address [33mtable[0m=approved [33mvalue[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:30:15-08:00] /status                                       [36mip[0m="127.0.0.1:58239" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:30:16-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists" [33mkey[0m=wallet_address [33mtable[0m=approved [33mvalue[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:30:25-08:00] /status                                       [36mip[0m="127.0.0.1:58239" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:30:26-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists" [33mkey[0m=wallet_address [33mtable[0m=approved [33mvalue[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:30:35-08:00] /status                                       [36mip[0m="127.0.0.1:58239" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:30:36-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists" [33mkey[0m=wallet_address [33mtable[0m=approved [33mvalue[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[36mINFO[0m[2022-12-01T17:30:45-08:00] /status                                       [36mip[0m="127.0.0.1:58239" [36mwallet_address[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c
+[33mWARN[0m[2022-12-01T17:30:46-08:00] Failed to decode verification results         [33merror[0m="mongo: no documents in result" [33mfile[0m="Database:CheckIfExists" [33mkey[0m=wallet_address [33mtable[0m=approved [33mvalue[0m=0xf8c537a4a923e46fa27be96dfefee969dfed542c

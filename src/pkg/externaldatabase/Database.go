@@ -83,7 +83,11 @@ func updateRequest(collection string, coll string, oid  primitive.ObjectID) erro
 
 	_, err = InsertRequest(result, coll)
 	if err == nil {
-		requestsCollection.DeleteOne(context.TODO(), bson.D{{"_id", oid}})
+		_, err = requestsCollection.DeleteOne(context.TODO(), bson.D{{"_id", oid}})
+		if err != nil {
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:updateRequest", "id": oid.String(), "collection": collection}).Error("Failed to delete from collection")
+
+		}
 		return nil
 	}
 
@@ -94,7 +98,7 @@ func CheckIfExists(walletAddress string, table string, key string) (bool, global
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
-		log.Println("checkifexist", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:CheckIfExists"}).Error("Failed to connect to mongodb client")
 		return false, global.VerificationRequest{}
 	}
 	defer client.Disconnect(ctx)
@@ -104,6 +108,7 @@ func CheckIfExists(walletAddress string, table string, key string) (bool, global
 	var result global.VerificationRequest
 	err = request.Decode(&result)
 	if err != nil {
+		//log.WithFields(log.Fields{"error": err.Error(), "file": "Database:CheckIfExists", "table": table, "key": key, "value": walletAddress}).Warn("Failed to decode verification results")
 		return false, global.VerificationRequest{}
 	}
 	return true, result

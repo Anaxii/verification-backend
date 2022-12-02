@@ -1,6 +1,7 @@
 package verify
 
 import (
+	log "github.com/sirupsen/logrus"
 	"puffinverificationbackend/src/pkg/blockchain"
 	"puffinverificationbackend/src/pkg/embeddeddatabase"
 	"puffinverificationbackend/src/pkg/externaldatabase"
@@ -30,6 +31,8 @@ func HandleRequests() {
 		case <-global.CheckRequests:
 			updating = true
 			embeddeddatabase.RefreshQueue()
+			log.WithFields(log.Fields{"file": "Verify:HandleRequests", "kyc_queue_size": len(global.Queue)}).Info("Checking KYC Queue")
+
 			for _, v := range global.Queue {
 				isValid := blockchain.VerifySignature(v.Signature.SignatureData, v.WalletAddress)
 				if !isValid {
@@ -64,6 +67,8 @@ func HandleRequests() {
 					}
 				}
 			}
+
+			log.WithFields(log.Fields{"file": "Verify:HandleRequests", "kyc_queue_size": len(global.SubAccountQueue)}).Info("Checking Subaccount Queue")
 
 			for _, v := range global.SubAccountQueue {
 				parentIsValid := blockchain.VerifySignature(v.ParentSignature.SignatureData, v.ParentAddress)
