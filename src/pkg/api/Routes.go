@@ -2,26 +2,32 @@ package api
 
 import (
 	"encoding/json"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"net/http"
 	"puffinverificationbackend/src/pkg/config"
 	"puffinverificationbackend/src/pkg/embeddeddatabase"
 	"puffinverificationbackend/src/pkg/externaldatabase"
 	"puffinverificationbackend/src/pkg/global"
+	"puffinverificationbackend/src/pkg/util"
 )
 
 func verify(w http.ResponseWriter, r *http.Request) {
+
+
 	var requestBody global.VerificationRequest
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to decode request body")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
+	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/verify")
+
 	res, err := json.Marshal(map[string]string{"success": "true"})
 	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to marshal response")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -41,14 +47,14 @@ func verify(w http.ResponseWriter, r *http.Request) {
 	requestBody.Status ="pending"
 	id, err := externaldatabase.InsertRequest(requestBody, "requests")
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into external")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
 	err = embeddeddatabase.InsertNewRequest(requestBody, id)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into embedded")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -63,14 +69,16 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:requestSubaccount"}).Warn("Failed to decode request body")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
+	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "parent_address": requestBody.ParentAddress, "subaccount_address": requestBody.SubAccountAddress}).Info("/requestsubaccount")
+
 	res, err := json.Marshal(map[string]string{"success": "true"})
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to marshal response")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -99,13 +107,13 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	id, err := externaldatabase.InsertRequest(requestBody, "subaccount_requests")
 	if err != nil {
 		log.Println(err)
-		w.WriteHeader(http.StatusBadRequest)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:requestSubaccount"}).Warn("Failed to insert requestBody to external")
 		return
 	}
 
 	err = embeddeddatabase.InsertNewSubAccountRequest(requestBody, id)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:requestSubaccount"}).Warn("Failed to insert requestBody to embedded")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -120,9 +128,11 @@ func getPub(w http.ResponseWriter, r *http.Request) {
 
 	defer r.Body.Close()
 
+	log.WithFields(log.Fields{"ip": util.ReadUserIP(r)}).Info("/pub")
+
 	data, err := json.Marshal(map[string]string{"pub": config.PublicKey})
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:getPub"}).Warn("Failed to insert requestBody to embedded")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -136,15 +146,17 @@ func status(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
 	if err != nil {
-		log.Println("cant decode", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:status"}).Warn("Failed to decode request body")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 	if requestBody.WalletAddress == "" {
-		log.Println("no addy", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:status"}).Warn("User didnt provide address")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+
+	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/status")
 
 	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
 	if approved {
