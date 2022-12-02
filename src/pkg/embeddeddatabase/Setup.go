@@ -3,7 +3,7 @@ package embeddeddatabase
 import (
 	"database/sql"
 	"errors"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"os"
 )
 
@@ -12,14 +12,14 @@ func SetupDatabase() {
 		log.Println("Creating sqlite-edatabase.db...")
 		file, err := os.Create("sqlite-database.db") // Create SQLite file
 		if err != nil {
-			log.Fatal(err.Error())
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Could not create database")
 		}
 		file.Close()
 		log.Println("sqlite-database.db created")
 
 		db, err := sql.Open("sqlite3", "./sqlite-database.db")
 		if err != nil {
-			log.Fatal(err.Error())
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Could not open database")
 		}
 		defer db.Close()
 
@@ -38,12 +38,14 @@ func SetupDatabase() {
 		"sig" TEXT
 	  );`)
 		if err != nil {
-			log.Fatal(err.Error())
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Failed to prepare table creation")
 		}
-		_, err = statement.Exec() // Execute SQL Statements
+		_, err = statement.Exec()
 		if err != nil {
-			log.Println(err.Error())
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Failed to execute table creation")
 		}
+
+		log.Println("Created table requests")
 
 		statement, err = db.Prepare(`CREATE TABLE subaccount_requests (
 		"parent_wallet_address" TEXT,
@@ -66,12 +68,15 @@ func SetupDatabase() {
 		"subaccount_sig" TEXT
 	  );`)
 		if err != nil {
-			log.Fatal(err.Error())
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Failed to prepare table creation")
 		}
-		_, err = statement.Exec() // Execute SQL Statements
+
+		_, err = statement.Exec()
 		if err != nil {
-			log.Println(err.Error())
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Failed to execute table creation")
 		}
-		log.Println("Table created")
+
+		log.Println("Created table subaccount_requests")
+
 	}
 }

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
+	log "github.com/sirupsen/logrus"
 	"golang.org/x/crypto/sha3"
 	"io/ioutil"
-	"log"
 	"math/big"
 	"os"
 	"puffinverificationbackend/src/pkg/global"
@@ -30,7 +30,7 @@ func init() {
 	if err != nil {
 		privateKey, err := crypto.GenerateKey()
 		if err != nil {
-			log.Fatal(err)
+			log.WithFields(log.Fields{"error": err.Error(), "file": "config:init"}).Fatal("Failed to generate a private key")
 		}
 		privateKeyBytes := crypto.FromECDSA(privateKey)
 
@@ -45,18 +45,19 @@ func init() {
 			PuffinChainID:                    43113114,
 		}, "", "  ")
 		_ = ioutil.WriteFile("config.json", file, 0644)
-		log.Fatal("Generated config.json | Fill in empty data and run again")
+		log.WithFields(log.Fields{ "file": "config:init"}).Fatal("Generated config.json | Fill in empty data and run again")
+
 	}
 
 	byteValue, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
-		log.Fatal("Config JSON invalid", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "config:init"}).Fatal("Config file is invalid")
 	}
 
 	var config global.ConfigStruct
 	err = json.Unmarshal(byteValue, &config)
 	if err != nil {
-		log.Fatal("Could not parse config", err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "config:init"}).Fatal("Could not unmarshal config file")
 	}
 
 	PrivateKey = config.PrivateKey
@@ -79,7 +80,8 @@ func init() {
 func GenerateECDSAKey(pkey string) (string, *ecdsa.PrivateKey) {
 	privateKey, err := crypto.HexToECDSA(pkey)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "config:init"}).Error("Could not convert private key string to ECDSA")
+		return "", &ecdsa.PrivateKey{}
 	}
 
 	publicKey := privateKey.Public()

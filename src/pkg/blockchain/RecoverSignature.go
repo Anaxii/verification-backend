@@ -6,7 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"strings"
 )
 
@@ -33,13 +33,13 @@ func signEIP191(message string) common.Hash {
 func decodePersonal(eip191 EIP191) bool {
 	decodedSig, err := hexutil.Decode(eip191.signature)
 	if err != nil || len(decodedSig) < 65 {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err, "file": "Blockchain:RecoverSignature"}).Warn("decoded sig < 65")
 		return false
 	}
 
 	if decodedSig[64] < 27 {
 		if !hasValidLastByte(decodedSig) {
-			log.Println("Invalid last byte")
+			log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:RecoverSignature"}).Warn("Invalid last byte")
 			return false
 		}
 	} else {
@@ -50,13 +50,14 @@ func decodePersonal(eip191 EIP191) bool {
 
 	recoveredPublicKey, err := crypto.Ecrecover(hash.Bytes(), decodedSig)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:RecoverSignature"}).Warn("Could not recover signature")
 		return false
 	}
 
 	secp256k1RecoveredPublicKey, err := crypto.UnmarshalPubkey(recoveredPublicKey)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:RecoverSignature"}).Warn("Could not unmarshal recovered signature")
+
 		return false
 	}
 

@@ -2,15 +2,15 @@ package embeddeddatabase
 
 import (
 	"database/sql"
+	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"log"
 	"puffinverificationbackend/src/pkg/global"
 )
 
 func InsertNewSubAccountRequest(data global.SubAccountRequest, id primitive.ObjectID) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
-		log.Fatal(err.Error())
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertNewSubAccountRequest"}).Fatal("Could not open database")
 	}
 	defer db.Close()
 
@@ -23,7 +23,7 @@ func InsertNewSubAccountRequest(data global.SubAccountRequest, id primitive.Obje
                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 	)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertNewSubAccountRequest"}).Error("Could not prepare for insert")
 		return err
 	}
 	_, err = statement.Exec(
@@ -55,7 +55,7 @@ func InsertNewSubAccountRequest(data global.SubAccountRequest, id primitive.Obje
 func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
-		log.Fatal(err.Error())
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertNewRequest"}).Fatal("Could not open database")
 	}
 	defer db.Close()
 
@@ -63,7 +63,7 @@ func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) er
 		`INSERT INTO requests(wallet_address, id, status, email, hashed_message, r, s, v, sig, message, account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 	)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertNewRequest"}).Error("Could not prepare for insert")
 		return err
 	}
 	_, err = statement.Exec(
@@ -88,7 +88,7 @@ func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) er
 func DeleteRequest(table string, walletAddress string, name string) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
-		log.Fatal(err.Error())
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Fatal("Could not open database")
 	}
 	defer db.Close()
 
@@ -96,7 +96,7 @@ func DeleteRequest(table string, walletAddress string, name string) error {
 		`DELETE FROM ` + table + ` WHERE ` + name + ` = ?`,
 	)
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:DeleteRequest"}).Error("Could not prepare for delete")
 		return err
 	}
 	_, err = statement.Exec(
@@ -114,14 +114,14 @@ func RefreshQueue() {
 
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
-		log.Println(err.Error())
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:RefreshQueue"}).Fatal("Could not open database")
 		return
 	}
 	defer db.Close()
 
 	row, err := db.Query("SELECT * FROM requests")
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:RefreshQueue"}).Warn("Failed to query db table requests")
 		return
 	}
 	defer row.Close()
@@ -148,7 +148,7 @@ func RefreshQueue() {
 
 	row, err = db.Query("SELECT * FROM subaccount_requests")
 	if err != nil {
-		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:RefreshQueue"}).Warn("Failed to query db table subaccount_requests")
 		return
 	}
 	defer row.Close()
