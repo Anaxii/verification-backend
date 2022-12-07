@@ -797,3 +797,489 @@
 [36mINFO[0m[2022-12-06T17:35:54-08:00] /status                                       [36mip[0m="[::1]:55307" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
 [36mINFO[0m[2022-12-06T17:41:04-08:00] /status                                       [36mip[0m="[::1]:55300" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
 [36mINFO[0m[2022-12-06T17:43:24-08:00] read tcp 127.0.0.1:8080->127.0.0.1:58344: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:52:12-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:52:12-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:52:12-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:52:12-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:52:12-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:52:12-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:52:12-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:52:13-08:00] /status                                       [36mip[0m="[::1]:53616" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:13-08:00] /status                                       [36mip[0m="[::1]:53625" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:13-08:00] /status                                       [36mip[0m="[::1]:53633" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:13-08:00] /status                                       [36mip[0m="[::1]:53640" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:13-08:00] /status                                       [36mip[0m="[::1]:53647" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:18-08:00] /status                                       [36mip[0m="[::1]:53702" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:18-08:00] /status                                       [36mip[0m="[::1]:53710" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:18-08:00] /status                                       [36mip[0m="[::1]:53717" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:18-08:00] /status                                       [36mip[0m="[::1]:53724" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:18-08:00] /status                                       [36mip[0m="[::1]:53731" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:52:28-08:00] /status                                       [36mip[0m="[::1]:53789" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:24-08:00] /status                                       [36mip[0m="[::1]:50996" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:24-08:00] /status                                       [36mip[0m="[::1]:50995" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:24-08:00] /status                                       [36mip[0m="[::1]:50994" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:24-08:00] /status                                       [36mip[0m="[::1]:50993" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:24-08:00] /status                                       [36mip[0m="[::1]:50997" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:35-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:53:35-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:53:35-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:53:35-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:53:35-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:53:35-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:53:35-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:53:35-08:00] /status                                       [36mip[0m="127.0.0.1:51102" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:37-08:00] /status                                       [36mip[0m="127.0.0.1:51103" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:37-08:00] /status                                       [36mip[0m="[::1]:51136" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:37-08:00] /status                                       [36mip[0m="[::1]:51144" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:37-08:00] /status                                       [36mip[0m="[::1]:51151" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:37-08:00] /status                                       [36mip[0m="[::1]:51158" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:53:47-08:00] /status                                       [36mip[0m="[::1]:51210" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:54:25-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:54:25-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:54:25-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:54:25-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:54:25-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:54:25-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:54:25-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:54:25-08:00] /status                                       [36mip[0m="127.0.0.1:51258" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:54:25-08:00] /status                                       [36mip[0m="127.0.0.1:51260" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:54:25-08:00] /status                                       [36mip[0m="[::1]:51286" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:54:25-08:00] /status                                       [36mip[0m="[::1]:51293" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:54:25-08:00] /status                                       [36mip[0m="[::1]:51300" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:54:35-08:00] /status                                       [36mip[0m="[::1]:51354" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:02-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:55:02-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:55:02-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:55:02-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:55:02-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:55:02-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:55:02-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:55:02-08:00] /status                                       [36mip[0m="127.0.0.1:51417" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:02-08:00] /status                                       [36mip[0m="[::1]:51401" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:02-08:00] /status                                       [36mip[0m="127.0.0.1:51406" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:02-08:00] /status                                       [36mip[0m="127.0.0.1:51436" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:02-08:00] /status                                       [36mip[0m="127.0.0.1:51437" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:12-08:00] /status                                       [36mip[0m="127.0.0.1:51438" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:13-08:00] /status                                       [36mip[0m="[::1]:51521" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:13-08:00] /status                                       [36mip[0m="[::1]:51534" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:13-08:00] /status                                       [36mip[0m="[::1]:51541" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:13-08:00] /status                                       [36mip[0m="[::1]:51548" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:13-08:00] /status                                       [36mip[0m="[::1]:51555" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:23-08:00] /status                                       [36mip[0m="[::1]:51622" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:38-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:55:38-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:55:38-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:55:38-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:55:38-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:55:38-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:55:38-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:55:39-08:00] /status                                       [36mip[0m="[::1]:51656" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:39-08:00] /status                                       [36mip[0m="[::1]:51655" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:39-08:00] /status                                       [36mip[0m="[::1]:51657" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:39-08:00] /status                                       [36mip[0m="[::1]:51699" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:39-08:00] /status                                       [36mip[0m="[::1]:51706" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:39-08:00] /status                                       [36mip[0m="[::1]:51713" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:55:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:55:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:55:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:55:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:55:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:55:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:07-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:56:07-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:56:07-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:56:07-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:56:07-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:56:07-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:56:07-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:56:07-08:00] /status                                       [36mip[0m="[::1]:51825" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:07-08:00] /status                                       [36mip[0m="[::1]:51824" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:07-08:00] /status                                       [36mip[0m="[::1]:51823" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:07-08:00] /status                                       [36mip[0m="[::1]:51844" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:07-08:00] /status                                       [36mip[0m="[::1]:51851" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:09-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:09-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:09-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:09-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:09-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:10-08:00] /status                                       [36mip[0m="127.0.0.1:51858" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:10-08:00] /status                                       [36mip[0m="[::1]:51909" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:10-08:00] /status                                       [36mip[0m="[::1]:51916" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:10-08:00] /status                                       [36mip[0m="[::1]:51917" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:10-08:00] /status                                       [36mip[0m="[::1]:51930" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:13-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:13-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:13-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:13-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:13-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:20-08:00] /status                                       [36mip[0m="[::1]:51930" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:23-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:30-08:00] /status                                       [36mip[0m="[::1]:51930" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:33-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:44-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:56:44-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:56:44-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:56:44-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:56:44-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:56:44-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:56:44-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:56:51-08:00] /status                                       [36mip[0m="[::1]:52033" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:51-08:00] /status                                       [36mip[0m="[::1]:52040" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:51-08:00] /status                                       [36mip[0m="[::1]:52047" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:51-08:00] /status                                       [36mip[0m="[::1]:52054" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:51-08:00] /status                                       [36mip[0m="[::1]:52055" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:56:53-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:53-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:53-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:53-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:56:53-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:01-08:00] /status                                       [36mip[0m="[::1]:52115" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:03-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:40-08:00] /status                                       [36mip[0m="[::1]:52165" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:40-08:00] /status                                       [36mip[0m="[::1]:52164" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:40-08:00] /status                                       [36mip[0m="[::1]:52163" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:40-08:00] /status                                       [36mip[0m="[::1]:52191" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:40-08:00] /status                                       [36mip[0m="[::1]:52198" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:42-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:43-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:43-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:43-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:43-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:57:50-08:00] /status                                       [36mip[0m="[::1]:52265" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:57:53-08:00] y2e                                          
+[36mINFO[0m[2022-12-06T17:58:02-08:00] /status                                       [36mip[0m="[::1]:52298" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:58:02-08:00] /status                                       [36mip[0m="[::1]:52297" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:58:02-08:00] /status                                       [36mip[0m="[::1]:52296" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:58:02-08:00] /status                                       [36mip[0m="[::1]:52295" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:58:02-08:00] /status                                       [36mip[0m="[::1]:52325" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:58:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:58:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:58:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:58:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:58:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:58:12-08:00] /status                                       [36mip[0m="[::1]:52348" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:58:13-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:01-08:00] /status                                       [36mip[0m="[::1]:52370" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:01-08:00] /status                                       [36mip[0m="[::1]:61318" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:02-08:00] /status                                       [36mip[0m="[::1]:61331" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:02-08:00] /status                                       [36mip[0m="[::1]:61338" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:02-08:00] /status                                       [36mip[0m="[::1]:61339" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:02-08:00] /status                                       [36mip[0m="[::1]:61340" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:03-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:09-08:00] /status                                       [36mip[0m="[::1]:61379" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:10-08:00] /status                                       [36mip[0m="[::1]:61380" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:10-08:00] /status                                       [36mip[0m="[::1]:61397" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:10-08:00] /status                                       [36mip[0m="[::1]:61404" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:10-08:00] /status                                       [36mip[0m="[::1]:61411" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:10-08:00] /status                                       [36mip[0m="[::1]:61418" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:10-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:11-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:11-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:11-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:11-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:11-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:20-08:00] /status                                       [36mip[0m="[::1]:61438" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:21-08:00] ye                                           
+[36mINFO[0m[2022-12-06T17:59:29-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:59:29-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:59:29-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:59:29-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:59:29-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:59:29-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:59:29-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:59:29-08:00] /status                                       [36mip[0m="[::1]:61455" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:38-08:00] /status                                       [36mip[0m="127.0.0.1:61456" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:48-08:00] /status                                       [36mip[0m="[::1]:61500" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:49-08:00] /status                                       [36mip[0m="[::1]:61509" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:49-08:00] /status                                       [36mip[0m="[::1]:61516" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:49-08:00] /status                                       [36mip[0m="[::1]:61523" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:55-08:00] /status                                       [36mip[0m="[::1]:61539" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:55-08:00] /status                                       [36mip[0m="[::1]:61540" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:55-08:00] /status                                       [36mip[0m="[::1]:61568" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:55-08:00] /status                                       [36mip[0m="[::1]:61575" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:59:55-08:00] /status                                       [36mip[0m="[::1]:61582" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:05-08:00] /status                                       [36mip[0m="[::1]:61611" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:21-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:00:21-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:00:21-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:00:21-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:00:21-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:00:21-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:00:21-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:00:22-08:00] /status                                       [36mip[0m="[::1]:57800" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:22-08:00] /status                                       [36mip[0m="127.0.0.1:57801" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:22-08:00] /status                                       [36mip[0m="[::1]:57826" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:22-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:22-08:00] /status                                       [36mip[0m="[::1]:57840" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:32-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:43-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:00:53-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:01:03-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:01:13-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:01:23-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:01:33-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:01:43-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:01:53-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:02:03-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:02:13-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:02:23-08:00] /status                                       [36mip[0m="[::1]:57827" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:02:36-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:02:36-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:02:36-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:02:36-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:02:36-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:02:36-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:02:36-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:02:42-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:02:42-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:02:42-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:02:42-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:02:42-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:02:42-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:02:42-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:02:42-08:00] /status                                       [36mip[0m="[::1]:58099" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:02:53-08:00] /status                                       [36mip[0m="[::1]:58123" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:03-08:00] /status                                       [36mip[0m="[::1]:58140" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:16-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:03:16-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:03:16-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:03:16-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:03:16-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:03:16-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:03:16-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:03:23-08:00] /status                                       [36mip[0m="[::1]:61136" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:32-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:03:32-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:03:32-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:03:32-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:03:32-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:03:32-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:03:32-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:03:33-08:00] /status                                       [36mip[0m="[::1]:61153" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:43-08:00] /status                                       [36mip[0m="[::1]:61153" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:53-08:00] /status                                       [36mip[0m="[::1]:61153" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:55-08:00] /status                                       [36mip[0m="[::1]:61153" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:55-08:00] /status                                       [36mip[0m="[::1]:61208" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:55-08:00] /status                                       [36mip[0m="[::1]:61215" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:55-08:00] /status                                       [36mip[0m="[::1]:61222" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:03:55-08:00] /status                                       [36mip[0m="[::1]:61310" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:04-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:04:04-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:04:04-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:04:04-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:04:04-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:04:04-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:04:04-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:04:05-08:00] /status                                       [36mip[0m="[::1]:61333" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:06-08:00] /status                                       [36mip[0m="[::1]:61347" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:06-08:00] /status                                       [36mip[0m="[::1]:61354" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:06-08:00] /status                                       [36mip[0m="[::1]:61361" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:06-08:00] /status                                       [36mip[0m="[::1]:61368" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:06-08:00] /status                                       [36mip[0m="[::1]:61375" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:11-08:00] /status                                       [36mip[0m="[::1]:61391" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:11-08:00] /status                                       [36mip[0m="[::1]:61398" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:11-08:00] /status                                       [36mip[0m="[::1]:61405" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:11-08:00] /status                                       [36mip[0m="[::1]:61412" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:11-08:00] /status                                       [36mip[0m="[::1]:61420" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:21-08:00] /status                                       [36mip[0m="[::1]:61436" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:04:48-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:04:48-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:04:48-08:00] /status                                       [36mip[0m="127.0.0.1:61490" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:04:57-08:00] /status                                       [36mip[0m="127.0.0.1:61491" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:07-08:00] /status                                       [36mip[0m="[::1]:61535" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:13-08:00] /status                                       [36mip[0m="[::1]:61562" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:13-08:00] /status                                       [36mip[0m="[::1]:61572" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:13-08:00] /status                                       [36mip[0m="[::1]:61579" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:13-08:00] /status                                       [36mip[0m="[::1]:61586" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:13-08:00] /status                                       [36mip[0m="[::1]:61593" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:05:23-08:00] /status                                       [36mip[0m="[::1]:61614" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:06:11-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:06:11-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:06:11-08:00] /status                                       [36mip[0m="[::1]:61871" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:12-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:12-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:06:13-08:00] /status                                       [36mip[0m="127.0.0.1:61872" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:13-08:00] /status                                       [36mip[0m="[::1]:61898" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:13-08:00] /status                                       [36mip[0m="[::1]:61907" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:13-08:00] /status                                       [36mip[0m="[::1]:61908" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:13-08:00] /status                                       [36mip[0m="[::1]:61921" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:14-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:06:23-08:00] /status                                       [36mip[0m="[::1]:62641" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:06:24-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:06:24-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:07:19-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:07:19-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:07:19-08:00] /status                                       [36mip[0m="[::1]:62741" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:07:20-08:00] /status                                       [36mip[0m="127.0.0.1:62744" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:07:21-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:07:21-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:07:21-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:07:21-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:07:29-08:00] /status                                       [36mip[0m="[::1]:62766" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:07:30-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:07:30-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:07:39-08:00] /status                                       [36mip[0m="[::1]:62780" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:07:40-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:07:40-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:07:49-08:00] /status                                       [36mip[0m="[::1]:62795" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:07:50-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:07:50-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:07:59-08:00] /status                                       [36mip[0m="[::1]:62817" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:00-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:00-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:08:26-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:08:26-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:08:29-08:00] /status                                       [36mip[0m="[::1]:62860" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:30-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:30-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:30-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:30-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:31-08:00] /status                                       [36mip[0m="[::1]:62860" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:31-08:00] /status                                       [36mip[0m="[::1]:62894" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:31-08:00] /status                                       [36mip[0m="[::1]:62901" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:31-08:00] /status                                       [36mip[0m="[::1]:62908" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:31-08:00] /status                                       [36mip[0m="[::1]:62915" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:32-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:41-08:00] /status                                       [36mip[0m="[::1]:62908" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:42-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:42-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:42-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:42-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:08:51-08:00] /status                                       [36mip[0m="[::1]:62908" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:08:52-08:00] ye                                           
+[36mINFO[0m[2022-12-06T18:08:52-08:00] ye1                                          
+[36mINFO[0m[2022-12-06T18:08:52-08:00] ye2                                          
+[36mINFO[0m[2022-12-06T18:08:52-08:00] ye3                                          
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:09:01-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:09:01-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:09:01-08:00] /status                                       [36mip[0m="[::1]:62967" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:09:14-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:09:14-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:09:19-08:00] /status                                       [36mip[0m="[::1]:62997" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:09:19-08:00] /status                                       [36mip[0m="[::1]:63005" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:09:19-08:00] /status                                       [36mip[0m="[::1]:63012" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:09:19-08:00] /status                                       [36mip[0m="[::1]:63019" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:09:19-08:00] /status                                       [36mip[0m="[::1]:63020" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:09:44-08:00] YEST                                         
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:10:14-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:10:14-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:10:21-08:00] /status                                       [36mip[0m="[::1]:63124" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:10:21-08:00] /status                                       [36mip[0m="[::1]:63133" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:10:21-08:00] /status                                       [36mip[0m="[::1]:63140" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:10:21-08:00] /status                                       [36mip[0m="[::1]:63147" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:10:21-08:00] /status                                       [36mip[0m="[::1]:63154" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:11:19-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:11:19-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:11:21-08:00] /status                                       [36mip[0m="[::1]:63231" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:14:19-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:14:19-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:14:25-08:00] read tcp 127.0.0.1:8080->127.0.0.1:53663: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:14:53-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:14:53-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:14:57-08:00] test read tcp 127.0.0.1:8080->127.0.0.1:53686: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T18:21:05-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:21:05-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T18:21:17-08:00] /status                                       [36mip[0m="[::1]:50922" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:21:17-08:00] /status                                       [36mip[0m="[::1]:50932" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:21:17-08:00] /status                                       [36mip[0m="[::1]:50933" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:21:17-08:00] /status                                       [36mip[0m="[::1]:50946" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T18:21:17-08:00] /status                                       [36mip[0m="[::1]:50953" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895

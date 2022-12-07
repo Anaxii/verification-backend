@@ -32,7 +32,7 @@ func HandleRequests() {
 			updating = true
 			embeddeddatabase.RefreshQueue()
 			log.WithFields(log.Fields{"file": "Verify:HandleRequests", "kyc_queue_size": len(global.Queue)}).Info("Checking KYC Queue")
-			global.SocketChannel <- map[string]interface{}{"status": "checking queue", "message": "verifying kyc requests", "queue_size": len(global.Queue)}
+			go global.Log(map[string]interface{}{"status": "checking queue", "message": "verifying kyc requests", "queue_size": len(global.Queue)})
 
 			for _, v := range global.Queue {
 				isValid := blockchain.VerifySignature(v.Signature.SignatureData, v.WalletAddress)
@@ -70,7 +70,7 @@ func HandleRequests() {
 			}
 
 			log.WithFields(log.Fields{"file": "Verify:HandleRequests", "kyc_queue_size": len(global.SubAccountQueue)}).Info("Checking Subaccount Queue")
-			global.SocketChannel <- map[string]interface{}{"status": "checking queue", "message": "verifying subaccount requests", "queue_size": len(global.SubAccountQueue)}
+			go global.Log(map[string]interface{}{"status": "checking queue", "message": "verifying subaccount requests", "queue_size": len(global.SubAccountQueue)})
 
 			for _, v := range global.SubAccountQueue {
 				parentIsValid := blockchain.VerifySignature(v.ParentSignature.SignatureData, v.ParentAddress)
