@@ -22,14 +22,13 @@ func reader(conn *websocket.Conn) {
 			response := map[string]string{"status": "Connection to Puffin KYC established"}
 			data, _ := json.Marshal(response)
 			if x == 0 {
+				x++
 				if err := conn.WriteMessage(websocket.TextMessage, data); err != nil {
 					log.Println(err)
-					x++
 					global.SocketCount--
 					return
 				}
 			}
-
 
 			if string(msg) == "logs" {
 				enabled["logs"] = true
