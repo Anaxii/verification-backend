@@ -23,4 +23,5 @@ func main() {
 
 	log.Info("Starting API")
 	api.StartAPI()
+
 }

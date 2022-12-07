@@ -9,6 +9,7 @@ require (
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/rs/cors v1.7.0
 	github.com/sirupsen/logrus v1.9.0
+	github.com/soloth/go-chainanalysis v0.1.4
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 )
 

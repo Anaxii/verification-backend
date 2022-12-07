@@ -29,6 +29,7 @@ func verify(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/verify")
+	global.SocketChannel <- map[string]interface{}{"status": "kyc request", "message": "verifying if account already exists", "walletAddress": requestBody.WalletAddress}
 
 	res, err := json.Marshal(map[string]string{"success": "true"})
 	if err != nil {
@@ -39,12 +40,14 @@ func verify(w http.ResponseWriter, r *http.Request) {
 
 	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
 	if !approved {
+		global.SocketChannel <- map[string]interface{}{"status": "kyc request", "message": "account already approved", "walletAddress": requestBody.WalletAddress}
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
 	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
 	if approved {
+		global.SocketChannel <- map[string]interface{}{"status": "kyc request", "message": "subaccount already approved", "walletAddress": requestBody.WalletAddress}
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -53,6 +56,7 @@ func verify(w http.ResponseWriter, r *http.Request) {
 	id, err := externaldatabase.InsertRequest(requestBody, "requests")
 	if err != nil {
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into external")
+		global.SocketChannel <- map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress}
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -63,6 +67,7 @@ func verify(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+	global.SocketChannel <- map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress}
 	global.CheckRequests <- true
 
 	w.Write(res)
@@ -80,6 +85,7 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "parent_address": requestBody.ParentAddress, "subaccount_address": requestBody.SubAccountAddress}).Info("/requestsubaccount")
+	global.SocketChannel <- map[string]interface{}{"status": "subaccount request", "message": "user requested new subaccount", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress}
 
 	res, err := json.Marshal(map[string]string{"success": "true"})
 	if err != nil {
@@ -91,12 +97,15 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	approved, _ := externaldatabase.CheckIfExists(requestBody.ParentAddress, "approved", "wallet_address")
 	if !approved {
 		res, _ := json.Marshal(map[string]string{"status": "parentAddressNotExist"})
+		global.SocketChannel <- map[string]interface{}{"status": "subaccount request", "message": "parent address invalid", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress}
+
 		w.Write(res)
 		return
 	}
 
 	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "approved", "wallet_address")
 	if approved {
+		global.SocketChannel <- map[string]interface{}{"status": "subaccount request", "message": "subaccount already claimed", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress}
 		res, _ := json.Marshal(map[string]string{"status": "subaccountAlreadyKYC"})
 		w.Write(res)
 		return
@@ -105,6 +114,7 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "subaccounts", "subaccount_address")
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "subaccountAlreadyClaimed"})
+		global.SocketChannel <- map[string]interface{}{"status": "subaccount request", "message": "subaccount already claimed", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress}
 		w.Write(res)
 		return
 	}
@@ -122,6 +132,7 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+	global.SocketChannel <- map[string]interface{}{"status": "subaccount request", "message": "subaccount request set to pending", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress}
 
 	global.CheckRequests <- true
 
@@ -174,6 +185,7 @@ func status(w http.ResponseWriter, r *http.Request) {
 	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		global.SocketChannel <- map[string]interface{}{"status": "kyc status request", "message": "account verified", "walletAddress": requestBody.WalletAddress}
 		w.Write(res)
 		statusCache.Set(requestBody.WalletAddress, true, cache.DefaultExpiration)
 		return
@@ -183,18 +195,23 @@ func status(w http.ResponseWriter, r *http.Request) {
 	if approved {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
+		global.SocketChannel <- map[string]interface{}{"status": "kyc status request", "message": "subaccount verified", "walletAddress": requestBody.WalletAddress}
+
 		statusCache.Set(requestBody.WalletAddress, true, cache.DefaultExpiration)
 		return
 	}
 	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests", "wallet_address")
 	if pending {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		global.SocketChannel <- map[string]interface{}{"status": "kyc status request", "message": "account pending", "walletAddress": requestBody.WalletAddress}
+
 		w.Write(res)
 		return
 	}
 	denied, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied", "wallet_address")
 	if denied {
-		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		res, _ := json.Marshal(map[string]string{"status": "denied"})
+		global.SocketChannel <- map[string]interface{}{"status": "kyc status request", "message": "account denied", "walletAddress": requestBody.WalletAddress}
 		w.Write(res)
 		return
 	}
@@ -202,4 +219,15 @@ func status(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 	return
 
+}
+
+func getWS(w http.ResponseWriter, r *http.Request) {
+	upgrader.CheckOrigin = func(r *http.Request) bool { return true }
+
+	ws, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		log.Println(err)
+	}
+
+	reader(ws)
 }

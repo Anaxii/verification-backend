@@ -490,3 +490,310 @@
 [36mINFO[0m[2022-12-01T22:04:28-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
 [36mINFO[0m[2022-12-01T22:04:28-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
 [36mINFO[0m[2022-12-01T22:04:33-08:00] /status                                       [36mip[0m="[::1]:55734" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T16:38:07-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T16:38:07-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T16:42:20-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T16:42:20-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T16:42:54-08:00] read tcp 127.0.0.1:8080->127.0.0.1:63351: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T16:58:22-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T16:58:22-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T16:59:36-08:00] /status                                       [36mip[0m="[::1]:50213" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T16:59:37-08:00] /status                                       [36mip[0m="[::1]:50222" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T16:59:37-08:00] /status                                       [36mip[0m="[::1]:50229" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T16:59:37-08:00] /status                                       [36mip[0m="[::1]:50236" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T16:59:37-08:00] /status                                       [36mip[0m="[::1]:50243" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:02:29-08:00] read tcp 127.0.0.1:8080->127.0.0.1:50171: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:02:46-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:02:46-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:02:49-08:00] /status                                       [36mip[0m="[::1]:60930" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:02:49-08:00] /status                                       [36mip[0m="[::1]:60939" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:02:49-08:00] /status                                       [36mip[0m="[::1]:60946" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:02:49-08:00] /status                                       [36mip[0m="[::1]:60954" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:02:49-08:00] /status                                       [36mip[0m="[::1]:60961" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:03:07-08:00] read tcp 127.0.0.1:8080->127.0.0.1:60975: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:03:17-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:03:17-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:03:21-08:00] /status                                       [36mip[0m="[::1]:55947" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:03:21-08:00] /status                                       [36mip[0m="[::1]:55956" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:03:21-08:00] /status                                       [36mip[0m="[::1]:55964" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:03:21-08:00] /status                                       [36mip[0m="[::1]:55971" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:03:21-08:00] /status                                       [36mip[0m="[::1]:55978" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:03:22-08:00] read tcp 127.0.0.1:8080->127.0.0.1:55943: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:03:22-08:00] write tcp 127.0.0.1:8080->127.0.0.1:55943: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:04:05-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:04:05-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:04:11-08:00] /status                                       [36mip[0m="[::1]:56024" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:11-08:00] /status                                       [36mip[0m="[::1]:56033" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:11-08:00] /status                                       [36mip[0m="[::1]:56040" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:11-08:00] /status                                       [36mip[0m="[::1]:56047" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:11-08:00] /status                                       [36mip[0m="[::1]:56055" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:21-08:00] /status                                       [36mip[0m="[::1]:56047" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:31-08:00] /status                                       [36mip[0m="[::1]:56047" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:04:42-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:04:42-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:04:42-08:00] /status                                       [36mip[0m="127.0.0.1:56086" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:44-08:00] /status                                       [36mip[0m="127.0.0.1:56087" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:44-08:00] /status                                       [36mip[0m="[::1]:56109" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:44-08:00] /status                                       [36mip[0m="[::1]:56116" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:44-08:00] /status                                       [36mip[0m="[::1]:56123" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:04:44-08:00] /status                                       [36mip[0m="[::1]:56130" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:05:21-08:00] /verify                                       [36mip[0m="[::1]:56130" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:05:24-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:05:27-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:06:51-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56143: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:06:51-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56262: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:06:56-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56267: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:02-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56270: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:21-08:00] /verify                                       [36mip[0m="[::1]:56130" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:07:21-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56143: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:25-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56262: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:25-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=2
+[31mERRO[0m[2022-12-06T17:07:26-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638fe6d3f86dd9834005e589\")"
+[36mINFO[0m[2022-12-06T17:07:28-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:07:32-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56274: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:40-08:00] /verify                                       [36mip[0m="[::1]:56130" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:07:40-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56267: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:44-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56270: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:07:44-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:07:46-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:07:58-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56331: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:09:24-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56387: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:09:36-08:00] /verify                                       [36mip[0m="[::1]:56130" [36mwallet_address[0m=0xbc3254f7d7156c0e08e247434aae29350d74a79e
+[36mINFO[0m[2022-12-06T17:09:36-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56274: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:09:40-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56331: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:09:40-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=2
+[31mERRO[0m[2022-12-06T17:09:41-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638fe75ff86dd9834005e596\")"
+[36mINFO[0m[2022-12-06T17:09:44-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:10:37-08:00] /status                                       [36mip[0m="[::1]:56130" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:10:37-08:00] /status                                       [36mip[0m="[::1]:56574" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:10:37-08:00] /status                                       [36mip[0m="[::1]:56575" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:10:38-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56387: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:10:43-08:00] /verify                                       [36mip[0m="[::1]:56574" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:10:43-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56508: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:10:46-08:00] write tcp 127.0.0.1:8080->127.0.0.1:56508: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:10:46-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:10:49-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:11:10-08:00] read tcp 127.0.0.1:8080->127.0.0.1:56657: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:14:36-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:14:36-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:14:36-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:14:36-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:14:36-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:14:36-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:14:36-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[31mERRO[0m[2022-12-06T17:14:39-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638fe815f86dd9834005e5a6\")"
+[36mINFO[0m[2022-12-06T17:14:39-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:16:35-08:00] read tcp 127.0.0.1:8080->127.0.0.1:61337: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:16:45-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:16:45-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:17:15-08:00] read tcp 127.0.0.1:8080->127.0.0.1:61376: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:17:34-08:00] /status                                       [36mip[0m="[::1]:57388" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:17:35-08:00] /status                                       [36mip[0m="[::1]:57405" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:17:35-08:00] /status                                       [36mip[0m="[::1]:57412" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:17:35-08:00] /status                                       [36mip[0m="[::1]:57420" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:17:35-08:00] /status                                       [36mip[0m="[::1]:57427" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:17:35-08:00] write tcp 127.0.0.1:8080->127.0.0.1:61376: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:18:56-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57374: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:19:32-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:19:32-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:19:32-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:19:32-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:19:32-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:19:32-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:19:32-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:19:33-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:20:34-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:20:35-08:00] /status                                       [36mip[0m="[::1]:57536" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:20:35-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:20:35-08:00] /status                                       [36mip[0m="[::1]:57550" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:20:35-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:20:45-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:20:55-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:21:05-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:21:05-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57491: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:21:06-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57491: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:21:15-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:21:25-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:21:35-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:21:45-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:21:55-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:03-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57607: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:22:05-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:06-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57607: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:22:11-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57660: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:22:15-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:16-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57660: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:22:25-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:25-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:25-08:00] /status                                       [36mip[0m="[::1]:57550" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:25-08:00] /status                                       [36mip[0m="[::1]:57536" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:25-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:35-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:45-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:45-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57673: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:22:46-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57673: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:22:48-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:49-08:00] /status                                       [36mip[0m="[::1]:57536" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:49-08:00] /status                                       [36mip[0m="[::1]:57550" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:49-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:49-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:22:59-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:23:10-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:23:13-08:00] /verify                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:23:17-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:23:19-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:24:14-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57749: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:24:18-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:20-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57749: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:24:22-08:00] /verify                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:25-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=2
+[31mERRO[0m[2022-12-06T17:24:26-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638feb04454201828ac30d2c\")"
+[36mINFO[0m[2022-12-06T17:24:29-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:24:45-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57643: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:24:49-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:49-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:49-08:00] /status                                       [36mip[0m="[::1]:57550" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:49-08:00] /status                                       [36mip[0m="[::1]:57536" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:49-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:50-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57643: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:24:53-08:00] /status                                       [36mip[0m="[::1]:57526" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:53-08:00] /status                                       [36mip[0m="[::1]:57536" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:53-08:00] /status                                       [36mip[0m="[::1]:57550" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:53-08:00] /status                                       [36mip[0m="[::1]:57543" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:24:53-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:25:01-08:00] /status                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:25:03-08:00] /verify                                       [36mip[0m="[::1]:57557" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:25:06-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:25:09-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:27:06-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:27:06-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:27:06-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:27:06-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:27:06-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:27:06-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:27:06-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[31mERRO[0m[2022-12-06T17:27:09-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638feb71454201828ac30d45\")"
+[36mINFO[0m[2022-12-06T17:27:09-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:27:15-08:00] /status                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:27:19-08:00] /verify                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:27:22-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:27:25-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:28:51-08:00] read tcp 127.0.0.1:8080->127.0.0.1:57937: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:28:57-08:00] /status                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:28:58-08:00] write tcp 127.0.0.1:8080->127.0.0.1:57937: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:28:59-08:00] /verify                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:02-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=2
+[31mERRO[0m[2022-12-06T17:29:04-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638febf9c2b507f1bc26e74a\")"
+[36mINFO[0m[2022-12-06T17:29:06-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:29:13-08:00] read tcp 127.0.0.1:8080->127.0.0.1:58023: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:29:18-08:00] /status                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:19-08:00] write tcp 127.0.0.1:8080->127.0.0.1:58023: wsasend: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:29:20-08:00] /verify                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:24-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:29:26-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:29:55-08:00] /status                                       [36mip[0m="[::1]:57956" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:56-08:00] /status                                       [36mip[0m="[::1]:58157" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:56-08:00] /status                                       [36mip[0m="[::1]:58158" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:56-08:00] /status                                       [36mip[0m="[::1]:58171" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:29:56-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:30:06-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:30:16-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:30:26-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:30:36-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:30:46-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:30:56-08:00] /status                                       [36mip[0m="[::1]:58178" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:31:08-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:31:08-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:31:08-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:31:08-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:31:08-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:31:08-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:31:08-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[31mERRO[0m[2022-12-06T17:31:10-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638fec73c2b507f1bc26e759\")"
+[36mINFO[0m[2022-12-06T17:31:10-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:31:16-08:00] /status                                       [36mip[0m="[::1]:58285" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:31:45-08:00] read tcp 127.0.0.1:8080->127.0.0.1:58274: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:31:58-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:31:58-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:31:58-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:31:58-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:31:58-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:31:58-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:31:58-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:31:58-08:00] /status                                       [36mip[0m="[::1]:58312" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:31:59-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:32:51-08:00] read tcp 127.0.0.1:8080->127.0.0.1:58325: wsarecv: An existing connection was forcibly closed by the remote host. 
+[36mINFO[0m[2022-12-06T17:33:03-08:00] Logging configured                           
+[36mINFO[0m[2022-12-06T17:33:03-08:00] Database Setup                               
+[36mINFO[0m[2022-12-06T17:33:03-08:00] Starting Request Handler                     
+[36mINFO[0m[2022-12-06T17:33:03-08:00] Starting API                                 
+[36mINFO[0m[2022-12-06T17:33:03-08:00] Available endpoints                           [36mpub[0m=GET [36mrequestsubaccount[0m=POST [36mstatus[0m=POST [36mverify[0m=POST
+[36mINFO[0m[2022-12-06T17:33:03-08:00] API listening on port 8080                   
+[36mINFO[0m[2022-12-06T17:33:03-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:33:04-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:33:06-08:00] /status                                       [36mip[0m="[::1]:58345" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:33:59-08:00] /verify                                       [36mip[0m="[::1]:58345" [36mwallet_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895
+[36mINFO[0m[2022-12-06T17:34:03-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:34:06-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=0
+[36mINFO[0m[2022-12-06T17:34:33-08:00] /requestsubaccount                            [36mip[0m="[::1]:58345" [36mparent_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895 [36msubaccount_address[0m=0xe7232d432641734afb74a3a6a82482c22fb34292
+[36mINFO[0m[2022-12-06T17:34:48-08:00] /requestsubaccount                            [36mip[0m="[::1]:58345" [36mparent_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895 [36msubaccount_address[0m=0xe7232d432641734afb74a3a6a82482c22fb34292
+[36mINFO[0m[2022-12-06T17:35:16-08:00] /requestsubaccount                            [36mip[0m="[::1]:58345" [36mparent_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895 [36msubaccount_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:35:21-08:00] Checking KYC Queue                            [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[31mERRO[0m[2022-12-06T17:35:22-08:00] Failed to decode results                      [31mcollection[0m=requests [31merror[0m="mongo: no documents in result" [31mfile[0m="Database:updateRequest" [31mid[0m="ObjectID(\"638fed8ace9eafdb0f7c5ff4\")"
+[36mINFO[0m[2022-12-06T17:35:22-08:00] Checking Subaccount Queue                     [36mfile[0m="Verify:HandleRequests" [36mkyc_queue_size[0m=1
+[36mINFO[0m[2022-12-06T17:35:41-08:00] /requestsubaccount                            [36mip[0m="[::1]:58345" [36mparent_address[0m=0x56a52b69179fb4bf0d0bc9aefc340e63c36d3895 [36msubaccount_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:35:53-08:00] /status                                       [36mip[0m="[::1]:58345" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:35:54-08:00] /status                                       [36mip[0m="[::1]:55286" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:35:54-08:00] /status                                       [36mip[0m="[::1]:55293" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:35:54-08:00] /status                                       [36mip[0m="[::1]:55300" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:35:54-08:00] /status                                       [36mip[0m="[::1]:55307" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:41:04-08:00] /status                                       [36mip[0m="[::1]:55300" [36mwallet_address[0m=0x6d3e3d43d65d4a43c4924bac68b8142ef8f31348
+[36mINFO[0m[2022-12-06T17:43:24-08:00] read tcp 127.0.0.1:8080->127.0.0.1:58344: wsarecv: An existing connection was forcibly closed by the remote host. 
