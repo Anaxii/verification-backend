@@ -3,15 +3,11 @@ package global
 var Queue []VerificationRequest
 var SubAccountQueue []SubAccountRequest
 var CheckRequests = make(chan bool)
-var SocketChannel = make(chan interface{})
-var SocketCount = 0
+
+var SocketChannels =  make(map[string]chan interface{})
 
 func Log(data interface{}) {
-	if SocketCount < 0 {
-		SocketCount = 0
+	for  k := range SocketChannels {
+		SocketChannels[k] <- data
 	}
-	if SocketCount > 0 {
-		SocketChannel <- data
-	}
-
 }

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/patrickmn/go-cache"
 	log "github.com/sirupsen/logrus"
+	"math/rand"
 	"net/http"
 	"puffinverificationbackend/src/pkg/config"
 	"puffinverificationbackend/src/pkg/embeddeddatabase"
@@ -34,7 +35,6 @@ func verify(w http.ResponseWriter, r *http.Request) {
 
 	res, err := json.Marshal(map[string]string{"success": "true"})
 	if err != nil {
-		log.Println(err)
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to marshal response")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
@@ -42,7 +42,6 @@ func verify(w http.ResponseWriter, r *http.Request) {
 
 	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
 	if approved {
-		log.Println(approved)
 		go global.Log(map[string]interface{}{"status": "kyc request", "message": "account already approved", "walletAddress": requestBody.WalletAddress})
 		w.WriteHeader(http.StatusBadRequest)
 		return
@@ -58,7 +57,6 @@ func verify(w http.ResponseWriter, r *http.Request) {
 	requestBody.Status ="pending"
 	id, err := externaldatabase.InsertRequest(requestBody, "requests")
 	if err != nil {
-		log.Println(err)
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into external")
 		go global.Log(map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress})
 		w.WriteHeader(http.StatusBadRequest)
@@ -67,7 +65,6 @@ func verify(w http.ResponseWriter, r *http.Request) {
 
 	err = embeddeddatabase.InsertNewRequest(requestBody, id)
 	if err != nil {
-		log.Println(err)
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into embedded")
 		w.WriteHeader(http.StatusBadRequest)
 		return
@@ -224,6 +221,16 @@ func status(w http.ResponseWriter, r *http.Request) {
 
 }
 
+var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+func RandStringRunes(n int) string {
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letterRunes[rand.Intn(len(letterRunes))]
+	}
+	return string(b)
+}
+
 func getWS(w http.ResponseWriter, r *http.Request) {
 	upgrader.CheckOrigin = func(r *http.Request) bool { return true }
 
@@ -232,5 +239,8 @@ func getWS(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	reader(ws)
+	data := make(chan interface{})
+	id := RandStringRunes(20)
+	global.SocketChannels[id] = data
+	reader(ws, data, id)
 }
