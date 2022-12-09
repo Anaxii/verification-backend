@@ -169,9 +169,15 @@ func status(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, found := statusCache.Get(requestBody.WalletAddress)
+	val, found := statusCache.Get(requestBody.WalletAddress)
 	if found {
-		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		log.Println(val)
+		var res []byte
+		if !val.(bool) {
+			res, _ = json.Marshal(map[string]string{"status": "sub"})
+		} else {
+			res, _ = json.Marshal(map[string]string{"status": "approved"})
+		}
 		w.Write(res)
 		return
 	}
@@ -195,10 +201,10 @@ func status(w http.ResponseWriter, r *http.Request) {
 	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
 
 	if approved {
-		res, _ := json.Marshal(map[string]string{"status": "approved"})
+		res, _ := json.Marshal(map[string]string{"status": "sub"})
 		w.Write(res)
 		go global.Log(map[string]interface{}{"status": "kyc status request", "message": "subaccount verified", "walletAddress": requestBody.WalletAddress})
-		go statusCache.Set(requestBody.WalletAddress, true, cache.DefaultExpiration)
+		go statusCache.Set(requestBody.WalletAddress, false, cache.DefaultExpiration)
 		return
 	}
 	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests", "wallet_address")
