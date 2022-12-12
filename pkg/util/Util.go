@@ -3,6 +3,7 @@ package util
 import (
 	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"math/rand"
 	"net/http"
 )
 
@@ -24,4 +25,14 @@ func ReadUserIP(r *http.Request) string {
 		IPAddress = r.RemoteAddr
 	}
 	return IPAddress
+}
+
+
+func RandStringRunes(n int) string {
+	letterRunes := []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letterRunes[rand.Intn(len(letterRunes))]
+	}
+	return string(b)
 }

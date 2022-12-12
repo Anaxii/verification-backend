@@ -1,6 +1,6 @@
 package global
 
-type VerificationRequest struct {
+type AccountRequest struct {
 	Name            string          `json:"name" bson:"name"`
 	ID              string          `json:"id" bson:"id"`
 	Status          string          `json:"status" bson:"status"`

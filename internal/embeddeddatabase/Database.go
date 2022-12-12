@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"puffinverificationbackend/src/pkg/global"
+	"puffinverificationbackend/internal/global"
 )
 
 func InsertNewSubAccountRequest(data global.SubAccountRequest, id primitive.ObjectID) error {
@@ -52,7 +52,7 @@ func InsertNewSubAccountRequest(data global.SubAccountRequest, id primitive.Obje
 	return nil
 }
 
-func InsertNewRequest(data global.VerificationRequest, id primitive.ObjectID) error {
+func InsertNewRequest(data global.AccountRequest, id primitive.ObjectID) error {
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
 	if err != nil {
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:InsertNewRequest"}).Fatal("Could not open database")
@@ -109,7 +109,7 @@ func DeleteRequest(table string, walletAddress string, name string) error {
 }
 
 func RefreshQueue() {
-	var _queue []global.VerificationRequest
+	var _queue []global.AccountRequest
 	var _subaccountQueue []global.SubAccountRequest
 
 	db, err := sql.Open("sqlite3", "./sqlite-database.db")
@@ -142,9 +142,9 @@ func RefreshQueue() {
 		if err != nil {
 			continue
 		}
-		_queue = append(_queue, global.VerificationRequest{WalletAddress: walletAddress, ID: id, Status: status, Email: email, Signature: global.SignatureStruct{Message: message, Account: account, SignatureData: global.SignatureData{HashedMessage: hashed_message, R: r, S: s, V: v, Sig: sig}}})
+		_queue = append(_queue, global.AccountRequest{WalletAddress: walletAddress, ID: id, Status: status, Email: email, Signature: global.SignatureStruct{Message: message, Account: account, SignatureData: global.SignatureData{HashedMessage: hashed_message, R: r, S: s, V: v, Sig: sig}}})
 	}
-	global.Queue = _queue
+	global.AccountQueue = _queue
 
 	row, err = db.Query("SELECT * FROM subaccount_requests")
 	if err != nil {

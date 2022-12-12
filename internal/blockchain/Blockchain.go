@@ -8,9 +8,9 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	log "github.com/sirupsen/logrus"
 	"math/big"
-	"puffinverificationbackend/src/pkg/abi"
-	"puffinverificationbackend/src/pkg/config"
-	"puffinverificationbackend/src/pkg/global"
+	"puffinverificationbackend/internal/config"
+	"puffinverificationbackend/internal/global"
+	"puffinverificationbackend/pkg/abi"
 )
 
 

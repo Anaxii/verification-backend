@@ -9,9 +9,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	_ "go.mongodb.org/mongo-driver/mongo/readpref"
-	"puffinverificationbackend/src/pkg/config"
-	"puffinverificationbackend/src/pkg/global"
-	"puffinverificationbackend/src/pkg/util"
+	"puffinverificationbackend/internal/config"
+	"puffinverificationbackend/internal/global"
+	"puffinverificationbackend/pkg/util"
 	"time"
 )
 
@@ -34,14 +34,14 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 	return insertResult.InsertedID.(primitive.ObjectID), nil
 }
 
-func DenyRequest(req global.VerificationRequest, reason string, coll string) error {
+func DenyRequest(req global.AccountRequest, reason string, coll string) error {
 	if oid, err := util.GetOID(req.ID); err == nil {
 		return updateRequest(coll, "denied", oid)
 	}
 	return errors.New("could not get oid")
 }
 
-func ApproveRequest(req global.VerificationRequest, coll string) error {
+func ApproveRequest(req global.AccountRequest, coll string) error {
 	if oid, err := util.GetOID(req.ID); err == nil {
 		return updateRequest(coll, "approved", oid)
 	}
@@ -94,22 +94,22 @@ func updateRequest(collection string, coll string, oid  primitive.ObjectID) erro
 	return errors.New("failed to remove request")
 }
 
-func CheckIfExists(walletAddress string, table string, key string) (bool, global.VerificationRequest) {
+func CheckIfExists(walletAddress string, table string, key string) (bool, global.AccountRequest) {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
 	if err != nil {
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:CheckIfExists"}).Error("Failed to connect to mongodb client")
-		return false, global.VerificationRequest{}
+		return false, global.AccountRequest{}
 	}
 	defer client.Disconnect(ctx)
 
 	requestsCollection := client.Database("PuffinTestnet").Collection(table)
 	request := requestsCollection.FindOne(context.TODO(), bson.D{{key, walletAddress}})
-	var result global.VerificationRequest
+	var result global.AccountRequest
 	err = request.Decode(&result)
 	if err != nil {
 		//log.WithFields(log.Fields{"error": err.Error(), "file": "Database:CheckIfExists", "table": table, "key": key, "value": walletAddress}).Warn("Failed to decode verification results")
-		return false, global.VerificationRequest{}
+		return false, global.AccountRequest{}
 	}
 	return true, result
 }

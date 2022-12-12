@@ -11,7 +11,7 @@ import (
 	"io/ioutil"
 	"math/big"
 	"os"
-	"puffinverificationbackend/src/pkg/global"
+	"puffinverificationbackend/internal/global"
 )
 
 var PrivateKey string

@@ -1,8 +1,4 @@
-package global
-
-var Queue []VerificationRequest
-var SubAccountQueue []SubAccountRequest
-var CheckRequests = make(chan bool)
+package api
 
 var SocketChannels =  make(map[string]chan interface{})
 

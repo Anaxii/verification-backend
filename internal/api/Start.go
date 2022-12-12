@@ -7,7 +7,7 @@ import (
 	"github.com/rs/cors"
 	log "github.com/sirupsen/logrus"
 	"net/http"
-	"puffinverificationbackend/src/pkg/config"
+	"puffinverificationbackend/internal/config"
 )
 
 var upgrader = websocket.Upgrader{

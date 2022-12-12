@@ -1,2 +1,4 @@
 sqlite-database.db
 config.json
+.idea
+*.log
