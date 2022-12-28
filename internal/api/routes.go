@@ -226,6 +226,65 @@ func status(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func verifyClientDeployment(w http.ResponseWriter, r *http.Request) {
+
+	var requestBody global.AccountRequest
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&requestBody)
+	if err != nil {
+		log.Println(err)
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to decode request body")
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/verify")
+	go Log(map[string]interface{}{"status": "kyc request", "message": "verifying if account already exists", "walletAddress": requestBody.WalletAddress})
+
+	res, err := json.Marshal(map[string]string{"success": "true"})
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to marshal response")
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
+	if approved {
+		go Log(map[string]interface{}{"status": "kyc request", "message": "account already approved", "walletAddress": requestBody.WalletAddress})
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
+	if approved {
+		go Log(map[string]interface{}{"status": "kyc request", "message": "subaccount already approved", "walletAddress": requestBody.WalletAddress})
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	requestBody.Status ="pending"
+	id, err := externaldatabase.InsertRequest(requestBody, "requests")
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into external")
+		go Log(map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress})
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	err = embeddeddatabase.InsertNewRequest(requestBody, id)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into embedded")
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	go Log(map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress})
+
+	global.CheckRequests <- true
+
+	w.Write(res)
+
+}
+
 func getWS(w http.ResponseWriter, r *http.Request) {
 	upgrader.CheckOrigin = func(r *http.Request) bool { return true }
 
