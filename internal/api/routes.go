@@ -10,6 +10,7 @@ import (
 	"puffinverificationbackend/internal/externaldatabase"
 	"puffinverificationbackend/internal/global"
 	"puffinverificationbackend/pkg/util"
+	"strings"
 	"time"
 )
 
@@ -226,62 +227,88 @@ func status(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func verifyClientDeployment(w http.ResponseWriter, r *http.Request) {
-
+func geoTier(w http.ResponseWriter, r *http.Request) {
 	var requestBody global.AccountRequest
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&requestBody)
 	if err != nil {
-		log.Println(err)
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to decode request body")
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:status"}).Warn("Failed to decode request body")
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/verify")
-	go Log(map[string]interface{}{"status": "kyc request", "message": "verifying if account already exists", "walletAddress": requestBody.WalletAddress})
-
-	res, err := json.Marshal(map[string]string{"success": "true"})
-	if err != nil {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to marshal response")
-		w.WriteHeader(http.StatusInternalServerError)
+	if requestBody.WalletAddress == "" {
+		log.WithFields(log.Fields{"file": "Routes:status"}).Warn("User didnt provide address")
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
-	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
+	approved, data := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
+	blocked := []string{"united states", "usa"}
 	if approved {
-		go Log(map[string]interface{}{"status": "kyc request", "message": "account already approved", "walletAddress": requestBody.WalletAddress})
-		w.WriteHeader(http.StatusBadRequest)
+		for _, a := range blocked {
+			if strings.ToLower(data.Country) == a {
+				res, _ := json.Marshal(map[string]int{"tier": 1})
+				w.Write(res)
+				return
+			}
+		}
+		res, _ := json.Marshal(map[string]int{"tier": 0})
+		w.Write(res)
 		return
 	}
 
-	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
-	if approved {
-		go Log(map[string]interface{}{"status": "kyc request", "message": "subaccount already approved", "walletAddress": requestBody.WalletAddress})
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	requestBody.Status ="pending"
-	id, err := externaldatabase.InsertRequest(requestBody, "requests")
-	if err != nil {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into external")
-		go Log(map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress})
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	err = embeddeddatabase.InsertNewRequest(requestBody, id)
-	if err != nil {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into embedded")
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-	go Log(map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress})
-
-	global.CheckRequests <- true
-
+	res, _ := json.Marshal(map[string]string{"error": "nonExist"})
 	w.Write(res)
+	return
+
+}
+
+func setCountry(w http.ResponseWriter, r *http.Request) {
+	var requestBody global.CountryRequest
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&requestBody)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:status"}).Warn("Failed to decode request body")
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	if requestBody.Country == "" {
+		log.WithFields(log.Fields{"file": "Routes:status"}).Warn("User didnt provide address")
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	countries := externaldatabase.GetCountries()
+	if requestBody.Allowed {
+		for _, v := range countries.Countries {
+			if v == requestBody.Country {
+				res, _ := json.Marshal(map[string]string{"error": "country already allowed"})
+				w.Write(res)
+				return
+			}
+			countries.Countries = append(countries.Countries, requestBody.Country)
+			res, _ := json.Marshal(map[string]string{"status": "success"})
+			w.Write(res)
+			return
+		}
+	} else {
+		for k, v := range countries.Countries {
+			if v == strings.ToLower(requestBody.Country) {
+				countries.Countries = append(countries.Countries[:k], countries.Countries[k+1])
+				res, _ := json.Marshal(map[string]string{"status": "success"})
+				w.Write(res)
+				return
+			}
+			res, _ := json.Marshal(map[string]string{"error": "country already blocked"})
+			w.Write(res)
+			return
+		}
+	}
+
+	w.WriteHeader(http.StatusInternalServerError)
+	return
 
 }
 

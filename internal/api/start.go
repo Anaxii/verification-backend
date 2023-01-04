@@ -24,6 +24,8 @@ func StartAPI() {
 	r := mux.NewRouter().StrictSlash(true)
 
 	r.HandleFunc("/verify", verify).Methods("POST")
+	r.HandleFunc("/setcountry", setCountry).Methods("POST")
+	r.HandleFunc("/geotier", geoTier).Methods("POST")
 	r.HandleFunc("/requestsubaccount", requestSubaccount).Methods("POST")
 	r.HandleFunc("/status", status).Methods("POST")
 	r.HandleFunc("/pub", getPub).Methods("GET")

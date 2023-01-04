@@ -113,3 +113,22 @@ func CheckIfExists(walletAddress string, table string, key string) (bool, global
 	}
 	return true, result
 }
+
+func GetCountries() global.Countries {
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:CheckIfExists"}).Error("Failed to connect to mongodb client")
+		return global.Countries{}
+	}
+	defer client.Disconnect(ctx)
+
+	requestsCollection := client.Database("PuffinTestnet").Collection("countries")
+	request := requestsCollection.FindOne(context.TODO(), bson.D{})
+	var result global.Countries
+	err = request.Decode(&result)
+	if err != nil {
+		return global.Countries{}
+	}
+	return result
+}

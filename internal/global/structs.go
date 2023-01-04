@@ -1,5 +1,14 @@
 package global
 
+type CountryRequest struct {
+	Country string `json:"country" bson:"country"`
+	Allowed bool   `json:"allowed" bson:"allowed"`
+}
+
+type Countries struct {
+	Countries []string `json:"countries" bson:"countries"`
+}
+
 type AccountRequest struct {
 	Name            string          `json:"name" bson:"name"`
 	ID              string          `json:"id" bson:"id"`
