@@ -1,0 +1,5 @@
+package countries
+
+func CheckCountries() {
+
+}
