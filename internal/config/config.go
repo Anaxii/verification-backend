@@ -24,6 +24,7 @@ var AvaxChainApprovedAccountsAddress string
 var PuffinRpcURL string
 var PuffinAllowListInterfaceURL string
 var PuffinChainId *big.Int
+var PuffinCoreAddress string
 
 func init() {
 	jsonFile, err := os.Open("config.json")
@@ -42,6 +43,7 @@ func init() {
 			AvaxChainApprovedAccountsAddress: "0x094B85f01716ddB7E07bE8E68c29d1bA6E59944e",
 			PuffinRPCURL:                     "https://node.thepuffin.network/ext/bc/273dwzFtrR6JQzLncTAbN5RBtiqdysVfKTJKBvYHhtUHBnrYWe/rpc",
 			PuffinAllowListInterfaceURL:      "0x0200000000000000000000000000000000000002",
+			PuffinCoreAddress: "0x44b4cCbdf70325f0a6cf8644ecf2AdBf7c737329",
 			PuffinChainID:                    43113114,
 		}, "", "  ")
 		_ = ioutil.WriteFile("config.json", file, 0644)
@@ -75,6 +77,7 @@ func init() {
 	PuffinRpcURL = config.PuffinRPCURL
 	PuffinAllowListInterfaceURL = config.PuffinAllowListInterfaceURL
 	PuffinChainId = big.NewInt(config.PuffinChainID)
+	PuffinCoreAddress = config.PuffinCoreAddress
 }
 
 func GenerateECDSAKey(pkey string) (string, *ecdsa.PrivateKey) {

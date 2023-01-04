@@ -50,6 +50,7 @@ type ConfigStruct struct {
 	PuffinRPCURL                     string `json:"puffin_rpc_url"`
 	PuffinAllowListInterfaceURL      string `json:"puffin_allow_list_interface_url"`
 	PuffinChainID                    int64  `json:"puffin_chain_id"`
+	PuffinCoreAddress                string `json:"puffin_core_address"`
 }
 
 type SubAccountRequest struct {

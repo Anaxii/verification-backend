@@ -123,3 +123,52 @@ func getAuth(rpcURL string, chainID *big.Int) (*ethclient.Client, *bind.Transact
 
 	return conn, auth, err
 }
+
+func GetTier(walletAddress string) (string, bool) {
+
+	conn, err := ethclient.Dial(config.AvaxRpcURL)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to connect to the Ethereum client")
+	}
+
+	core, err := abi.NewPuffinCore(common.HexToAddress(config.PuffinCoreAddress), conn)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to instantiate PuffinApprovedAccounts contract")
+	}
+
+	tier, err := core.Tier(nil, common.HexToAddress(walletAddress))
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to check if user is approved")
+		return "0", false
+	}
+
+	isKYC, err := core.IsKYC(nil, common.HexToAddress(walletAddress))
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:CheckIfIsApproved"}).Error("Failed to check if user is approved")
+		return "0", false
+	}
+	return tier.String(), isKYC
+}
+
+func SetTier(walletAddress string, tier *big.Int) error {
+
+	conn, auth, err := getAuth(config.AvaxRpcURL, config.AvaxChainId)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:EnableOnPuffin"}).Error("Failed to get auth")
+		return err
+	}
+
+	verify, err := abi.NewPuffinCore(common.HexToAddress(config.PuffinCoreAddress), conn)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:EnableOnPuffin"}).Error("Failed to initialize AllowListInterface")
+		return err
+	}
+
+	_, err = verify.SetTier(auth, common.HexToAddress(walletAddress), tier)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Blockchain:EnableOnPuffin"}).Error("Failed to call SetEnabled")
+		return err
+	}
+
+	return nil
+}
