@@ -22,11 +22,11 @@ func startMinuteTicker(updating *bool) {
 			}
 		}
 	}()
-	go func() {
-		for {
-			<-countryTicker.C
-			countryTicker = minuteTicker(300)
-			countries.CheckCountries()
-		}
-	}()
+	//go func() {
+	for {
+		<-countryTicker.C
+		countryTicker = minuteTicker(300)
+		countries.CheckCountries()
+	}
+	//}()
 }

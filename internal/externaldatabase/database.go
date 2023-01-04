@@ -132,3 +132,33 @@ func GetCountries() global.Countries {
 	}
 	return result
 }
+
+func GetAllUsers() ([]global.AccountRequest, error) {
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:CheckIfExists"}).Error("Failed to connect to mongodb client")
+		return []global.AccountRequest{}, err
+	}
+	defer client.Disconnect(ctx)
+
+	requestsCollection := client.Database("PuffinTestnet").Collection("approved")
+	cur, err := requestsCollection.Find(context.TODO(), bson.D{})
+	if err !=nil {
+		log.Error(err)
+	}
+
+	var results []global.AccountRequest
+	for cur.Next(context.TODO()) {
+		var result global.AccountRequest
+		err := cur.Decode(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		results = append(results, result)
+
+	}
+
+	return results, nil
+}

@@ -3,6 +3,7 @@ package verify
 import (
 	log "github.com/sirupsen/logrus"
 	"puffinverificationbackend/internal/api"
+	"puffinverificationbackend/internal/countries"
 	"puffinverificationbackend/internal/embeddeddatabase"
 	"puffinverificationbackend/internal/global"
 )
@@ -10,6 +11,7 @@ import (
 func HandleRequests() {
 	updating := false
 	go startMinuteTicker(&updating)
+	countries.CheckCountries()
 	for {
 		select {
 		case <-global.CheckRequests:
