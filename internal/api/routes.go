@@ -188,6 +188,8 @@ func status(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	requestBody.WalletAddress = strings.ToLower(requestBody.WalletAddress)
+
 	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/status")
 
 	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
