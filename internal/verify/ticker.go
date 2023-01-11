@@ -1,7 +1,6 @@
 package verify
 
 import (
-	"puffinverificationbackend/internal/countries"
 	"puffinverificationbackend/internal/global"
 	"time"
 )
@@ -12,7 +11,7 @@ func minuteTicker(seconds int) *time.Ticker {
 
 func startMinuteTicker(updating *bool) {
 	requestsTicker := minuteTicker(60)
-	countryTicker := minuteTicker(300)
+	//countryTicker := minuteTicker(300)
 	go func() {
 		for {
 			<-requestsTicker.C
@@ -23,10 +22,10 @@ func startMinuteTicker(updating *bool) {
 		}
 	}()
 	//go func() {
-	for {
-		<-countryTicker.C
-		countryTicker = minuteTicker(300)
-		countries.CheckCountries()
-	}
+	//for {
+	//	<-countryTicker.C
+	//	countryTicker = minuteTicker(300)
+	//	countries.CheckCountries()
+	//}
 	//}()
 }

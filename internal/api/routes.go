@@ -5,7 +5,6 @@ import (
 	"github.com/patrickmn/go-cache"
 	log "github.com/sirupsen/logrus"
 	"net/http"
-	"puffinverificationbackend/internal/config"
 	"puffinverificationbackend/internal/embeddeddatabase"
 	"puffinverificationbackend/internal/externaldatabase"
 	"puffinverificationbackend/internal/global"
@@ -40,7 +39,7 @@ func verify(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
+	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "accounts", "wallet_address")
 	if approved {
 		go Log(map[string]interface{}{"status": "kyc request", "message": "account already approved", "walletAddress": requestBody.WalletAddress})
 		w.WriteHeader(http.StatusBadRequest)
@@ -49,13 +48,13 @@ func verify(w http.ResponseWriter, r *http.Request) {
 
 	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
 	if approved {
-		go Log(map[string]interface{}{"status": "kyc request", "message": "subaccount already approved", "walletAddress": requestBody.WalletAddress})
+		go Log(map[string]interface{}{"status": "kyc request", "message": "account already approved", "walletAddress": requestBody.WalletAddress})
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
 	requestBody.Status ="pending"
-	id, err := externaldatabase.InsertRequest(requestBody, "requests")
+	id, err := externaldatabase.InsertRequest(requestBody, "account_requests")
 	if err != nil {
 		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:verify"}).Warn("Failed to insert requestBody into external")
 		go Log(map[string]interface{}{"status": "kyc request", "message": "kyc set to pending", "walletAddress": requestBody.WalletAddress})
@@ -97,18 +96,10 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	approved, _ := externaldatabase.CheckIfExists(requestBody.ParentAddress, "approved", "wallet_address")
+	approved, _ := externaldatabase.CheckIfExists(requestBody.ParentAddress, "accounts", "wallet_address")
 	if !approved {
 		res, _ := json.Marshal(map[string]string{"status": "parentAddressNotExist"})
 		go Log(map[string]interface{}{"status": "subaccount request", "message": "parent address invalid", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress})
-		w.Write(res)
-		return
-	}
-
-	approved, _ = externaldatabase.CheckIfExists(requestBody.SubAccountAddress, "approved", "wallet_address")
-	if approved {
-		go Log(map[string]interface{}{"status": "subaccount request", "message": "subaccount already claimed", "parent": requestBody.ParentAddress, "subaccount": requestBody.SubAccountAddress})
-		res, _ := json.Marshal(map[string]string{"status": "subaccountAlreadyKYC"})
 		w.Write(res)
 		return
 	}
@@ -139,23 +130,6 @@ func requestSubaccount(w http.ResponseWriter, r *http.Request) {
 	global.CheckRequests <- true
 
 	w.Write(res)
-
-}
-
-func getPub(w http.ResponseWriter, r *http.Request) {
-
-	defer r.Body.Close()
-
-	log.WithFields(log.Fields{"ip": util.ReadUserIP(r)}).Info("/pub")
-
-	data, err := json.Marshal(map[string]string{"pub": config.PublicKey})
-	if err != nil {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:getPub"}).Warn("Failed to insert requestBody to embedded")
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	w.Write(data)
 
 }
 
@@ -192,41 +166,42 @@ func status(w http.ResponseWriter, r *http.Request) {
 
 	log.WithFields(log.Fields{"ip": util.ReadUserIP(r), "wallet_address": requestBody.WalletAddress}).Info("/status")
 
-	approved, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "approved", "wallet_address")
-	if approved {
+	exists, data := externaldatabase.CheckIfExists(requestBody.WalletAddress, "account_requests", "wallet_address")
+	if !exists {
+		res, _ := json.Marshal(map[string]string{"status": "nonExist"})
+		w.Write(res)
+		return
+	}
+	if data.Status == "approved" {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
 		go Log(map[string]interface{}{"status": "kyc status request", "message": "account verified", "walletAddress": requestBody.WalletAddress})
 		go statusCache.Set(requestBody.WalletAddress, true, cache.DefaultExpiration)
 		return
 	}
-	approved, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "subaccount_address")
-
-	if approved {
-		res, _ := json.Marshal(map[string]string{"status": "sub"})
-		w.Write(res)
-		go Log(map[string]interface{}{"status": "kyc status request", "message": "subaccount verified", "walletAddress": requestBody.WalletAddress})
-		go statusCache.Set(requestBody.WalletAddress, false, cache.DefaultExpiration)
-		return
-	}
-	pending, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "requests", "wallet_address")
-	if pending {
+	if data.Status == "pending" {
 		res, _ := json.Marshal(map[string]string{"status": "approved"})
 		w.Write(res)
 		go Log(map[string]interface{}{"status": "kyc status request", "message": "account pending", "walletAddress": requestBody.WalletAddress})
 		return
 	}
-	denied, _ := externaldatabase.CheckIfExists(requestBody.WalletAddress, "denied", "wallet_address")
-	if denied {
+	if data.Status == "denied" {
 		res, _ := json.Marshal(map[string]string{"status": "denied"})
 		w.Write(res)
 		go Log(map[string]interface{}{"status": "kyc status request", "message": "account denied", "walletAddress": requestBody.WalletAddress})
 		return
 	}
+
+	exists, _ = externaldatabase.CheckIfExists(requestBody.WalletAddress, "subaccounts", "wallet_address")
+	if exists {
+		res, _ := json.Marshal(map[string]string{"status": "sub"})
+		w.Write(res)
+		go Log(map[string]interface{}{"status": "kyc status request", "message": "account is sub", "walletAddress": requestBody.WalletAddress})
+		return
+	}
+
 	res, _ := json.Marshal(map[string]string{"status": "nonExist"})
 	w.Write(res)
-	return
-
 }
 
 func geoTier(w http.ResponseWriter, r *http.Request) {

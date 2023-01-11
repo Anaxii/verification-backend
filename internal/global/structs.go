@@ -62,7 +62,6 @@ type SubAccountRequest struct {
 	SubAccountSignature SignatureStruct `json:"sub_account_signature" bson:"sub_account_signature"`
 }
 
-
 type ClientSettings struct {
 	AdminName                   string   `json:"admin_name" bson:"admin_name"`
 	ProjectName                 string   `json:"project_name" bson:"project_name"`
@@ -84,4 +83,5 @@ type ClientSettings struct {
 	UUID                        int      `json:"UUID" bson:"UUID"`
 	Status                      string   `json:"status" bson:"status"`
 	PaymentExpiration           int      `json:"payment_expiration" bson:"payment_expiration"`
+	BlockedCountries            []string `json:"blocked_countries" bson:"blocked_countries"`
 }

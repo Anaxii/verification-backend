@@ -5,6 +5,7 @@ import (
 	"puffinverificationbackend/internal/embeddeddatabase"
 	"puffinverificationbackend/internal/externaldatabase"
 	"puffinverificationbackend/internal/global"
+	"puffinverificationbackend/internal/kyc"
 )
 
 func handleAccountQueue(v global.AccountRequest) {
@@ -13,23 +14,31 @@ func handleAccountQueue(v global.AccountRequest) {
 		return
 	}
 
-	if blockchain.CheckIfIsApproved(v.WalletAddress) {
-		denyAccountAndDelete(v, "wallet already has kyc")
-		return
-	}
+	//if blockchain.CheckIfIsApproved(v.WalletAddress) {
+	//	denyAccountAndDelete(v, "wallet already has kyc")
+	//	return
+	//}
 
-	if err := blockchain.ApproveAddress(v.WalletAddress); err != nil {
-		denyAccountAndDelete(v, "error approving wallet on mainnet")
-		return
-	}
+	//if err := blockchain.ApproveAddress(v.WalletAddress); err != nil {
+	//	denyAccountAndDelete(v, "error approving wallet on mainnet")
+	//	return
+	//}
 
-	if err := blockchain.EnableOnPuffin(v.WalletAddress); err != nil {
-		denyAccountAndDelete(v, "error enabling wallet on puffin")
-		return
-	}
+	//if err := blockchain.EnableOnPuffin(v.WalletAddress); err != nil {
+	//	denyAccountAndDelete(v, "error enabling wallet on puffin")
+	//	return
+	//}
 
-	if err := externaldatabase.ApproveRequest(v, "requests"); err == nil {
-		embeddeddatabase.DeleteRequest("requests", v.WalletAddress, "wallet_address")
+	status := kyc.CheckKYC(v)
+	if status == "approved" {
+		if err := externaldatabase.ApproveRequest(v, "account_requests"); err == nil {
+			embeddeddatabase.DeleteRequest("requests", v.WalletAddress, "wallet_address")
+		}
+	} else if status == "wait" {
+		return
+	} else if status == "denied" {
+		denyAccountAndDelete(v, "kyc denied")
+		return
 	}
 
 }
@@ -45,14 +54,14 @@ func handleSubaccountQueue(v global.SubAccountRequest) {
 		return
 	}
 
-	if err := blockchain.ApproveAddress(v.SubAccountAddress); err != nil {
-		denySubAccountAndDelete(v, "error approving wallet on mainnet")
-		return
-	}
-	if err := blockchain.EnableOnPuffin(v.SubAccountAddress); err != nil {
-		denySubAccountAndDelete(v, "error enabling wallet on puffin")
-		return
-	}
+	//if err := blockchain.ApproveAddress(v.SubAccountAddress); err != nil {
+	//	denySubAccountAndDelete(v, "error approving wallet on mainnet")
+	//	return
+	//}
+	//if err := blockchain.EnableOnPuffin(v.SubAccountAddress); err != nil {
+	//	denySubAccountAndDelete(v, "error enabling wallet on puffin")
+	//	return
+	//}
 
 	if err := externaldatabase.ApproveSubRequest(v, "subaccount_requests"); err == nil {
 		embeddeddatabase.DeleteRequest("subaccount_requests", v.ParentAddress, "parent_wallet_address")
@@ -67,8 +76,8 @@ func denySubAccountAndDelete(v global.SubAccountRequest, reason string) {
 }
 
 func denyAccountAndDelete(v global.AccountRequest, reason string) {
-	err := externaldatabase.DenyRequest(v, reason, "requests")
+	err := externaldatabase.DenyRequest(v, reason, "account_requests")
 	if err != nil {
-		embeddeddatabase.DeleteRequest("requests", v.WalletAddress, "wallet_address")
+		embeddeddatabase.DeleteRequest("account_requests", v.WalletAddress, "wallet_address")
 	}
 }

@@ -28,7 +28,6 @@ func StartAPI() {
 	r.HandleFunc("/geotier", geoTier).Methods("POST")
 	r.HandleFunc("/requestsubaccount", requestSubaccount).Methods("POST")
 	r.HandleFunc("/status", status).Methods("POST")
-	r.HandleFunc("/pub", getPub).Methods("GET")
 	r.HandleFunc("/ws", getWS).Methods("GET")
 
 	log.WithFields(log.Fields{"verify": "POST", "requestsubaccount": "POST", "status": "POST", "pub": "GET"}).Info("Available endpoints")

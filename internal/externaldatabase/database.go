@@ -24,7 +24,7 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 	}
 	defer client.Disconnect(ctx)
 
-	requestsCollection := client.Database("PuffinTestnet").Collection(coll)
+	requestsCollection := client.Database("puffin").Collection(coll)
 
 	insertResult, err := requestsCollection.InsertOne(ctx, req)
 	if err != nil {
@@ -36,33 +36,45 @@ func InsertRequest(req interface{}, coll string) (primitive.ObjectID, error) {
 
 func DenyRequest(req global.AccountRequest, reason string, coll string) error {
 	if oid, err := util.GetOID(req.ID); err == nil {
-		return updateRequest(coll, "denied", oid)
+		return updateRequest(coll, coll, oid, "denied")
 	}
 	return errors.New("could not get oid")
 }
 
 func ApproveRequest(req global.AccountRequest, coll string) error {
 	if oid, err := util.GetOID(req.ID); err == nil {
-		return updateRequest(coll, "approved", oid)
+		err = updateRequest(coll, coll, oid, "approved")
+		if err != nil {
+			return err
+		}
+		req.Status = "approved"
+		_, err = InsertRequest(req, "accounts")
+		return err
 	}
 	return errors.New("could not get oid")
 }
 
 func DenySubRequest(req global.SubAccountRequest, reason string, coll string) error {
 	if oid, err := util.GetOID(req.ID); err == nil {
-		return updateRequest(coll, "denied_subaccounts", oid)
+		return updateRequest(coll, coll, oid, "denied")
 	}
 	return errors.New("could not get oid")
 }
 
 func ApproveSubRequest(req global.SubAccountRequest, coll string) error {
 	if oid, err := util.GetOID(req.ID); err == nil {
-		return updateRequest(coll, "subaccounts", oid)
+		err = updateRequest(coll, coll, oid, "approved")
+		if err != nil {
+			return err
+		}
+		req.Status = "approved"
+		_, err = InsertRequest(req, "subaccounts")
+		return err
 	}
 	return errors.New("could not get oid")
 }
 
-func updateRequest(collection string, coll string, oid  primitive.ObjectID) error {
+func updateRequest(collection string, coll string, oid  primitive.ObjectID, status string) error {
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(config.MongoDBURI))
@@ -73,25 +85,14 @@ func updateRequest(collection string, coll string, oid  primitive.ObjectID) erro
 	defer client.Disconnect(ctx)
 
 	requestsCollection := client.Database("PuffinTestnet").Collection(collection)
-	request := requestsCollection.FindOne(context.TODO(), bson.D{{"_id", oid}})
-	var result interface{}
-	err = request.Decode(&result)
+	filter := bson.D{{"_id", oid}}
+	update := bson.D{{"$set", bson.D{{"status", status}}}}
+	_, err = requestsCollection.UpdateOne(context.TODO(), filter, update)
 	if err != nil {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Database:updateRequest", "id": oid.String(), "collection": collection}).Error("Failed to decode results")
 		return err
 	}
 
-	_, err = InsertRequest(result, coll)
-	if err == nil {
-		_, err = requestsCollection.DeleteOne(context.TODO(), bson.D{{"_id", oid}})
-		if err != nil {
-			log.WithFields(log.Fields{"error": err.Error(), "file": "Database:updateRequest", "id": oid.String(), "collection": collection}).Error("Failed to delete from collection")
-
-		}
-		return nil
-	}
-
-	return errors.New("failed to remove request")
+	return nil
 }
 
 func CheckIfExists(walletAddress string, table string, key string) (bool, global.AccountRequest) {
@@ -103,7 +104,7 @@ func CheckIfExists(walletAddress string, table string, key string) (bool, global
 	}
 	defer client.Disconnect(ctx)
 
-	requestsCollection := client.Database("PuffinTestnet").Collection(table)
+	requestsCollection := client.Database("puffin").Collection(table)
 	request := requestsCollection.FindOne(context.TODO(), bson.D{{key, walletAddress}})
 	var result global.AccountRequest
 	err = request.Decode(&result)
@@ -142,7 +143,7 @@ func GetAllUsers() ([]global.AccountRequest, error) {
 	}
 	defer client.Disconnect(ctx)
 
-	requestsCollection := client.Database("PuffinTestnet").Collection("approved")
+	requestsCollection := client.Database("PuffinTestnet").Collection("accounts")
 	cur, err := requestsCollection.Find(context.TODO(), bson.D{})
 	if err !=nil {
 		log.Error(err)
