@@ -30,7 +30,6 @@ func StartAPI() {
 	r.HandleFunc("/kyc/status", status).Methods("POST")
 	r.HandleFunc("/ws", getWS).Methods("GET")
 
-	log.WithFields(log.Fields{"verify": "POST", "requestsubaccount": "POST", "status": "POST", "pub": "GET"}).Info("Available endpoints")
 	r.Use(mux.CORSMethodMiddleware(r))
 	log.Info(fmt.Sprintf("API listening on port %v", config.Port))
 	log.Fatal(http.ListenAndServe(":"+config.Port, c.Handler(r)))
