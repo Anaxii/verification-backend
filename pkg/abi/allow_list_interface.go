@@ -41,7 +41,7 @@ var AllowListInterfaceABI = AllowListInterfaceMetaData.ABI
 type AllowListInterface struct {
 	AllowListInterfaceCaller     // Read-only binding to the contract
 	AllowListInterfaceTransactor // Write-only binding to the contract
-	AllowListInterfaceFilterer   // Log filterer for contract events
+	AllowListInterfaceFilterer   // log filterer for contract events
 }
 
 // AllowListInterfaceCaller is an auto generated read-only Go binding around an Ethereum contract.

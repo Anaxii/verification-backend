@@ -7,12 +7,12 @@ import (
 	"puffinverificationbackend/internal/embeddeddatabase"
 	"puffinverificationbackend/internal/global"
 	"puffinverificationbackend/internal/verify"
-	"puffinverificationbackend/pkg/Log"
+	puffinLog "puffinverificationbackend/pkg/log"
 )
 
 func main() {
 
-	Log.SetupLogs()
+	puffinLog.SetupLogs()
 
 	log.Info("Logging configured")
 

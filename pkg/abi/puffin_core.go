@@ -41,7 +41,7 @@ var PuffinCoreABI = PuffinCoreMetaData.ABI
 type PuffinCore struct {
 	PuffinCoreCaller     // Read-only binding to the contract
 	PuffinCoreTransactor // Write-only binding to the contract
-	PuffinCoreFilterer   // Log filterer for contract events
+	PuffinCoreFilterer   // log filterer for contract events
 }
 
 // PuffinCoreCaller is an auto generated read-only Go binding around an Ethereum contract.
@@ -435,7 +435,7 @@ type PuffinCoreOwnershipTransferredIterator struct {
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
 
-	logs chan types.Log        // Log channel receiving the found contract events
+	logs chan types.Log        // log channel receiving the found contract events
 	sub  ethereum.Subscription // Subscription for errors, completion and termination
 	done bool                  // Whether the subscription completed delivering logs
 	fail error                 // Occurred error to stop iteration

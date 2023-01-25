@@ -29,7 +29,7 @@ func handleAccountQueue(v global.AccountRequest) {
 	//	return
 	//}
 
-	status := kyc.CheckKYC(v)
+	status, _ := kyc.CheckKYC(v)
 	if status == "approved" {
 		if err := externaldatabase.ApproveRequest(v, "account_requests"); err == nil {
 			embeddeddatabase.DeleteRequest("requests", v.WalletAddress, "wallet_address")

@@ -41,7 +41,7 @@ var PuffinApprovedAccountsABI = PuffinApprovedAccountsMetaData.ABI
 type PuffinApprovedAccounts struct {
 	PuffinApprovedAccountsCaller     // Read-only binding to the contract
 	PuffinApprovedAccountsTransactor // Write-only binding to the contract
-	PuffinApprovedAccountsFilterer   // Log filterer for contract events
+	PuffinApprovedAccountsFilterer   // log filterer for contract events
 }
 
 // PuffinApprovedAccountsCaller is an auto generated read-only Go binding around an Ethereum contract.
@@ -332,7 +332,7 @@ type PuffinApprovedAccountsOwnershipTransferredIterator struct {
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
 
-	logs chan types.Log        // Log channel receiving the found contract events
+	logs chan types.Log        // log channel receiving the found contract events
 	sub  ethereum.Subscription // Subscription for errors, completion and termination
 	done bool                  // Whether the subscription completed delivering logs
 	fail error                 // Occurred error to stop iteration
