@@ -24,7 +24,6 @@ func StartAPI() {
 	r := mux.NewRouter().StrictSlash(true)
 
 	r.HandleFunc("/kyc/verify", verify).Methods("POST")
-	r.HandleFunc("/kyc/setcountry", setCountry).Methods("POST")
 	r.HandleFunc("/kyc/geotier", geoTier).Methods("POST")
 	r.HandleFunc("/kyc/requestsubaccount", requestSubaccount).Methods("POST")
 	r.HandleFunc("/kyc/status", status).Methods("POST")

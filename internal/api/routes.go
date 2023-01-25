@@ -241,54 +241,6 @@ func geoTier(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func setCountry(w http.ResponseWriter, r *http.Request) {
-	var requestBody global.CountryRequest
-	decoder := json.NewDecoder(r.Body)
-	err := decoder.Decode(&requestBody)
-	if err != nil {
-		log.WithFields(log.Fields{"error": err.Error(), "file": "Routes:status"}).Warn("Failed to decode request body")
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	if requestBody.Country == "" {
-		log.WithFields(log.Fields{"file": "Routes:status"}).Warn("User didnt provide address")
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	countries := externaldatabase.GetCountries()
-	if requestBody.Allowed {
-		for _, v := range countries.Countries {
-			if v == requestBody.Country {
-				res, _ := json.Marshal(map[string]string{"error": "country already allowed"})
-				w.Write(res)
-				return
-			}
-			countries.Countries = append(countries.Countries, requestBody.Country)
-			res, _ := json.Marshal(map[string]string{"status": "success"})
-			w.Write(res)
-			return
-		}
-	} else {
-		for k, v := range countries.Countries {
-			if v == strings.ToLower(requestBody.Country) {
-				countries.Countries = append(countries.Countries[:k], countries.Countries[k+1])
-				res, _ := json.Marshal(map[string]string{"status": "success"})
-				w.Write(res)
-				return
-			}
-			res, _ := json.Marshal(map[string]string{"error": "country already blocked"})
-			w.Write(res)
-			return
-		}
-	}
-
-	w.WriteHeader(http.StatusInternalServerError)
-	return
-
-}
-
 func getWS(w http.ResponseWriter, r *http.Request) {
 	upgrader.CheckOrigin = func(r *http.Request) bool { return true }
 
