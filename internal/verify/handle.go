@@ -14,21 +14,6 @@ func handleAccountQueue(v global.AccountRequest) {
 		return
 	}
 
-	//if blockchain.CheckIfIsApproved(v.WalletAddress) {
-	//	denyAccountAndDelete(v, "wallet already has kyc")
-	//	return
-	//}
-
-	//if err := blockchain.ApproveAddress(v.WalletAddress); err != nil {
-	//	denyAccountAndDelete(v, "error approving wallet on mainnet")
-	//	return
-	//}
-
-	//if err := blockchain.EnableOnPuffin(v.WalletAddress); err != nil {
-	//	denyAccountAndDelete(v, "error enabling wallet on puffin")
-	//	return
-	//}
-
 	status, _ := kyc.CheckKYC(v)
 	if status == "approved" {
 		if err := externaldatabase.ApproveRequest(v, "account_requests"); err == nil {
@@ -53,15 +38,6 @@ func handleSubaccountQueue(v global.SubAccountRequest) {
 		denySubAccountAndDelete(v, "subaccount invalid signature")
 		return
 	}
-
-	//if err := blockchain.ApproveAddress(v.SubAccountAddress); err != nil {
-	//	denySubAccountAndDelete(v, "error approving wallet on mainnet")
-	//	return
-	//}
-	//if err := blockchain.EnableOnPuffin(v.SubAccountAddress); err != nil {
-	//	denySubAccountAndDelete(v, "error enabling wallet on puffin")
-	//	return
-	//}
 
 	if err := externaldatabase.ApproveSubRequest(v, "subaccount_requests"); err == nil {
 		embeddeddatabase.DeleteRequest("subaccount_requests", v.ParentAddress, "parent_wallet_address")
