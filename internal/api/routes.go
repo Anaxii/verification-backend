@@ -145,7 +145,6 @@ func status(w http.ResponseWriter, r *http.Request) {
 
 	val, found := statusCache.Get(requestBody.WalletAddress)
 	if found {
-		log.Println(val)
 		var res []byte
 		if !val.(bool) {
 			res, _ = json.Marshal(map[string]string{"status": "sub"})
