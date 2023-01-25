@@ -9,7 +9,7 @@ import (
 )
 
 func handleAccountQueue(v global.AccountRequest) {
-	if isValid := blockchain.VerifySignature(v.Signature.SignatureData, v.WalletAddress); !isValid {
+	if isValid := blockchain.VerifySignature(v.Signature.SignatureData, v.WalletAddress, v.Signature.Message); !isValid {
 		denyAccountAndDelete(v, "invalid signature")
 		return
 	}
@@ -44,12 +44,12 @@ func handleAccountQueue(v global.AccountRequest) {
 }
 
 func handleSubaccountQueue(v global.SubAccountRequest) {
-	if parentIsValid := blockchain.VerifySignature(v.ParentSignature.SignatureData, v.ParentAddress); !parentIsValid {
+	if parentIsValid := blockchain.VerifySignature(v.ParentSignature.SignatureData, v.ParentAddress, v.ParentSignature.Message); !parentIsValid {
 		denySubAccountAndDelete(v, "parent invalid signature")
 		return
 	}
 
-	if subaccountIsValid := blockchain.VerifySignature(v.SubAccountSignature.SignatureData, v.SubAccountAddress); !subaccountIsValid {
+	if subaccountIsValid := blockchain.VerifySignature(v.SubAccountSignature.SignatureData, v.SubAccountAddress, v.SubAccountSignature.Message); !subaccountIsValid {
 		denySubAccountAndDelete(v, "subaccount invalid signature")
 		return
 	}

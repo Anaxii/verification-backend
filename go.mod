@@ -3,13 +3,14 @@ module puffinverificationbackend
 go 1.17
 
 require (
+	github.com/boltdb/bolt v1.3.1
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/gorilla/mux v1.8.0
 	github.com/mattn/go-sqlite3 v1.14.16
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/rs/cors v1.7.0
 	github.com/sirupsen/logrus v1.9.0
-	github.com/soloth/go-chainanalysis v0.1.4
+	github.com/soloth/go-chainanalysis v1.0.0
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 )
 
@@ -41,7 +42,7 @@ require (
 )
 
 require (
-	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/gorilla/websocket v1.5.0
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
 	go.mongodb.org/mongo-driver v1.11.0
